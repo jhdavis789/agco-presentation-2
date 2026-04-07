@@ -190,6 +190,22 @@ td.gold { color: var(--gold-400); }
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 1b</span>
+        <h3>Market Share — Global Large Ag Fleet</h3>
+        <canvas id="c1-global-share" style="max-height:220px"></canvas>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 1c</span>
+        <h3>Market Share by Region (%)</h3>
+        <canvas id="c1-region-share" style="max-height:220px"></canvas>
+      </div>
+    </div>
+  </div>
   <div class="card">
     <h3>Brand Portfolio</h3>
     <table>
@@ -608,6 +624,37 @@ function initS1() {
       scales: {
         y: { grid: { color: GRID }, title: { display: true, text: 'Operating Margin (%)' } },
         x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // Global fleet share (doughnut)
+  new Chart(document.getElementById('c1-global-share'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Deere (~35%)', 'CNH (~25%)', 'AGCO (~15%)', 'Others (~25%)'],
+      datasets: [{ data: [35, 25, 15, 25], backgroundColor: [GRAY, COPPER, PRIMARY, '#D4D0C8'], borderWidth: 0 }]
+    },
+    options: { plugins: { legend: { position: 'bottom' } } }
+  });
+
+  // Regional share (grouped bar)
+  new Chart(document.getElementById('c1-region-share'), {
+    type: 'bar',
+    data: {
+      labels: ['North America', 'Europe', 'South America'],
+      datasets: [
+        { label: 'Deere', data: [55, 18, 22], backgroundColor: GRAY, borderRadius: 3 },
+        { label: 'CNH', data: [28, 22, 28], backgroundColor: COPPER, borderRadius: 3 },
+        { label: 'AGCO', data: [12, 22, 28], backgroundColor: PRIMARY, borderRadius: 3 },
+        { label: 'Others', data: [5, 38, 22], backgroundColor: '#D4D0C8', borderRadius: 3 }
+      ]
+    },
+    options: {
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10 } } },
+      scales: {
+        x: { stacked: true, grid: { display: false } },
+        y: { stacked: true, grid: { color: GRID }, title: { display: true, text: 'Share (%)' }, max: 100 }
       }
     }
   });
