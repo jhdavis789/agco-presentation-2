@@ -3,82 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGCO Corporation: Investment Thesis</title>
+<title>AGCO Corporation: Executive Investment Thesis</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<!-- Fonts loaded via @import in CSS -->
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --navy-900: #001A30;
-  --navy-800: #00294B;
-  --navy-700: #153A5A;
-  --sapphire-100: #EBF4FB;
-  --sapphire-200: #C8E1F4;
-  --sapphire-300: #7BBAE0;
-  --sapphire-400: #3B98CC;
-  --sapphire-500: #0075B5;
-  --sapphire-600: #005F9E;
-  --sapphire-700: #004A7F;
-  --teal-400: #4DB8B0;
-  --teal-500: #00897B;
-  --teal-600: #007E6C;
-  --green-400: #5CB97A;
-  --green-500: #2E8B4E;
-  --green-600: #1B7A3D;
-  --red-400: #E8697E;
-  --red-500: #C41E3A;
-  --red-600: #A31530;
-  --gold-300: #DEB769;
-  --gold-400: #C49A48;
-  --gold-500: #A67C32;
-  --gold-600: #8B6528;
-  --copper-400: #C6A796;
-  --copper-500: #BA7D48;
-  --copper-600: #976253;
-  --raspberry-400: #D48AB3;
-  --raspberry-500: #C45A96;
-  --warm-white: #FAFAF8;
-  --warm-50: #F6F5F2;
-  --warm-100: #EDECE8;
-  --warm-200: #E0DED8;
-  --warm-300: #CBC8C0;
-  --warm-400: #A9A69E;
-  --text-primary: #1C2B3A;
-  --text-secondary: #5A6778;
-  --text-muted: #8B95A2;
-  --card-bg: #FFFFFF;
-  --card-border: #E8E5E0;
+  --navy-900: #001A30; --navy-800: #00294B; --navy-700: #153A5A;
+  --sapphire-100: #EBF4FB; --sapphire-200: #C8E1F4; --sapphire-300: #7BBAE0;
+  --sapphire-400: #3B98CC; --sapphire-500: #0075B5; --sapphire-600: #005F9E;
+  --teal-400: #4DB8B0; --teal-500: #00897B; --teal-600: #007E6C;
+  --green-500: #2E8B4E; --green-600: #1B7A3D;
+  --red-400: #E8697E; --red-500: #C41E3A; --red-600: #A31530;
+  --gold-300: #DEB769; --gold-400: #C49A48; --gold-500: #A67C32;
+  --copper-500: #BA7D48; --copper-600: #976253;
+  --warm-white: #FAFAF8; --warm-50: #F6F5F2; --warm-100: #EDECE8;
+  --warm-200: #E0DED8; --warm-300: #CBC8C0; --warm-400: #A9A69E;
+  --text-primary: #1C2B3A; --text-secondary: #5A6778; --text-muted: #8B95A2;
+  --card-bg: #FFFFFF; --card-border: #E8E5E0;
   --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
   --card-hover: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
   --font-display: 'Source Serif 4', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-body);
-  background: var(--warm-white);
-  color: var(--text-primary);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  font-family: var(--font-body); background: var(--warm-white);
+  color: var(--text-primary); line-height: 1.6;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 
-/* NAV */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(250,250,248,0.88);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--warm-200);
-  padding: 0 20px;
+  background: rgba(250,250,248,0.88); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--warm-200); padding: 0 24px;
   display: flex; align-items: center; height: 48px;
   overflow-x: auto; scrollbar-width: none;
-  gap: 0;
 }
 .nav::-webkit-scrollbar { display: none; }
+.nav-brand {
+  font-family: var(--font-display); font-size: 15px; font-weight: 600;
+  color: var(--navy-800); margin-right: 24px; white-space: nowrap;
+  padding-right: 24px; border-right: 1px solid var(--warm-200);
+}
+.nav-brand span { color: var(--sapphire-500); }
 .nav-section {
   color: var(--navy-700); font-size: 9px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 2px;
@@ -86,1112 +55,465 @@ body {
 }
 .nav-btn {
   background: none; border: none; border-bottom: 2px solid transparent;
-  color: var(--text-muted); padding: 14px 10px; cursor: pointer;
+  color: var(--text-muted); padding: 14px 12px; cursor: pointer;
   font-family: var(--font-body); font-size: 12px; font-weight: 500;
   transition: all 0.2s; white-space: nowrap;
 }
 .nav-btn:hover { color: var(--sapphire-500); }
-.nav-btn.active {
-  color: var(--navy-800); font-weight: 600;
-  border-bottom-color: var(--sapphire-500);
-}
-.nav-sep {
-  width: 1px; height: 20px; background: var(--warm-200);
-  margin: 0 8px; flex-shrink: 0;
-}
+.nav-btn.active { color: var(--navy-800); font-weight: 600; border-bottom-color: var(--sapphire-500); }
+.nav-sep { width: 1px; height: 20px; background: var(--warm-200); margin: 0 8px; flex-shrink: 0; }
 
-@media (max-width: 1400px) {
-  .nav { padding: 0 12px; }
-  .nav-btn { padding: 14px 7px; font-size: 11px; }
-  .nav-section { font-size: 8px; padding: 0 6px 0 10px; }
-}
-
-/* SLIDES */
-.slide {
-  display: none; padding: 72px 48px 48px;
-  min-height: 100vh; max-width: 1400px; margin: 0 auto;
-}
+.slide { display: none; padding: 72px 48px 48px; min-height: 100vh; max-width: 1400px; margin: 0 auto; }
 .slide.active { display: block; }
 .slide-title {
   font-family: var(--font-display); color: var(--navy-800);
   font-size: 32px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.3px; line-height: 1.2;
 }
 .slide-title span { color: var(--sapphire-500); }
-.slide-subtitle {
-  color: var(--text-secondary); font-size: 15px;
-  margin-bottom: 28px; line-height: 1.65; max-width: 740px;
-}
-
-/* LAYOUT */
+.slide-subtitle { color: var(--text-secondary); font-size: 15px; margin-bottom: 28px; line-height: 1.65; max-width: 780px; }
 .row { display: flex; gap: 22px; margin-bottom: 22px; }
 .row > .col { flex: 1; min-width: 0; }
 .card {
   background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 10px; padding: 24px; margin-bottom: 16px;
+  border-radius: 10px; padding: 24px; position: relative;
   box-shadow: var(--card-shadow); transition: box-shadow 0.3s ease;
 }
+.exhibit-num {
+  position: absolute; top: 8px; right: 10px;
+  background: var(--navy-800); color: #fff;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.5px;
+  padding: 3px 8px; border-radius: 4px;
+  opacity: 0; transition: opacity 0.2s; pointer-events: none;
+}
 .card:hover { box-shadow: var(--card-hover); }
+.card:hover .exhibit-num { opacity: 1; }
 .card h3 {
   color: var(--navy-700); font-size: 11px; font-weight: 600;
   text-transform: uppercase; letter-spacing: 1px;
-  margin-bottom: 14px; padding-bottom: 10px;
-  border-bottom: 1px solid var(--warm-100);
+  margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--warm-100);
 }
 canvas { max-height: 380px; }
-
-/* METRICS */
 .metrics { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
 .metric {
   background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 10px; padding: 18px 22px; flex: 1; min-width: 150px;
-  box-shadow: var(--card-shadow); transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 10px; padding: 18px 22px; flex: 1; min-width: 140px;
+  box-shadow: var(--card-shadow); transition: transform 0.2s, box-shadow 0.2s;
 }
 .metric:hover { transform: translateY(-1px); box-shadow: var(--card-hover); }
-.metric .label {
-  color: var(--text-muted); font-size: 10px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 1.2px;
-}
-.metric .value {
-  font-family: var(--font-display); color: var(--text-primary);
-  font-size: 26px; font-weight: 600; margin-top: 4px; letter-spacing: -0.5px;
-}
-.metric .value.amber { color: var(--sapphire-500); }
+.metric .label { color: var(--text-muted); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; }
+.metric .value { font-family: var(--font-display); color: var(--text-primary); font-size: 26px; font-weight: 600; margin-top: 4px; letter-spacing: -0.5px; }
+.metric .value.blue { color: var(--sapphire-500); }
 .metric .value.teal { color: var(--teal-500); }
-.metric .value.blue { color: var(--sapphire-400); }
 .metric .value.green { color: var(--green-600); }
 .metric .value.red { color: var(--red-500); }
 .metric .detail { color: var(--text-muted); font-size: 11px; margin-top: 2px; }
-
-/* CALLOUT */
 .callout {
   background: var(--sapphire-100); border: 1px solid var(--sapphire-200);
   border-left: 3px solid var(--sapphire-500); border-radius: 8px;
-  padding: 18px 22px; margin-top: 16px; color: var(--navy-700); font-size: 13px; line-height: 1.65;
+  padding: 18px 22px; margin-top: 18px; color: var(--navy-700); font-size: 13px; line-height: 1.65;
 }
-.callout-teal {
-  background: #F0FAF9; border-color: #B8E4E0;
-  border-left-color: var(--teal-500);
-}
-.callout-red {
-  background: #FEF5F5; border-color: #F0D0CD;
-  border-left-color: var(--red-500); color: #5C2A26;
-}
-
-/* TABLES */
+.callout-teal { background: #F0FAF9; border-color: #B8E4E0; border-left-color: var(--teal-500); }
+.callout-red { background: #FEF5F5; border-color: #F0D0CD; border-left-color: var(--red-500); color: #5C2A26; }
+.callout-gold { background: #FDF8F0; border-color: #E8D5B8; border-left-color: var(--gold-400); color: #5C4422; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th {
-  background: var(--warm-50); color: var(--navy-700);
-  text-align: left; padding: 11px 12px; font-size: 10px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.8px;
-  border-bottom: 2px solid var(--warm-200);
+  background: var(--warm-50); color: var(--navy-700); text-align: left;
+  padding: 11px 14px; font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 2px solid var(--warm-200);
 }
-td { padding: 10px 12px; border-bottom: 1px solid var(--warm-100); color: var(--text-primary); }
+td { padding: 10px 14px; border-bottom: 1px solid var(--warm-100); color: var(--text-primary); }
 tr:hover { background: var(--warm-50); }
 .r { text-align: right; }
 td.green { color: var(--green-600); }
 td.red { color: var(--red-500); }
-td.amber { color: var(--sapphire-500); }
-td.blue { color: var(--sapphire-400); }
+td.blue { color: var(--sapphire-500); }
 td.teal { color: var(--teal-500); }
-
-/* SOURCE */
+td.gold { color: var(--gold-400); }
 .source { color: var(--text-muted); font-size: 10px; margin-top: 8px; font-style: italic; }
-
-/* BULLET LIST */
-.bullets { list-style: none; padding: 0; }
-.bullets li {
-  padding: 10px 0 10px 22px; position: relative;
-  color: var(--text-secondary); font-size: 14px; line-height: 1.55;
-  border-bottom: 1px solid var(--warm-100);
-}
-.bullets li::before {
-  content: ''; position: absolute; left: 0; top: 16px;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--sapphire-500);
-}
-.bullets li strong { color: var(--text-primary); }
-
-/* HERO */
-.hero-center { text-align: center; padding-top: 48px; }
-.hero-center .slide-title { font-size: 40px; margin-bottom: 12px; }
-.hero-center .hero-tagline {
-  color: var(--text-muted); font-family: var(--font-body);
-  font-size: 13px; font-weight: 600; letter-spacing: 3px;
-  text-transform: uppercase; margin-bottom: 36px;
-}
-
-/* FLOW DIAGRAM */
-.flow-chain { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 20px 0; }
-.flow-box {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 10px; padding: 14px 20px; text-align: center; min-width: 120px;
-  box-shadow: var(--card-shadow);
-}
-.flow-box .flow-label {
-  font-size: 10px; font-weight: 600; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 1px;
-}
-.flow-box .flow-value {
-  font-family: var(--font-display); font-size: 22px; font-weight: 600;
-  color: var(--sapphire-500); margin-top: 4px;
-}
-.flow-arrow { color: var(--teal-500); font-size: 24px; font-weight: 700; }
-
-/* COMPARISON */
-.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.compare-col {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 10px; padding: 22px; box-shadow: var(--card-shadow);
-}
-.compare-col h4 { font-family: var(--font-display); font-size: 18px; margin-bottom: 12px; }
-.compare-col.left h4 { color: var(--sapphire-500); }
-.compare-col.right h4 { color: var(--teal-500); }
-
-/* KB HINT */
 .kb-hint {
-  position: fixed; bottom: 14px; right: 18px;
-  color: var(--text-muted); font-size: 10px; z-index: 100;
-  background: rgba(255,255,255,0.85); padding: 5px 12px;
-  border-radius: 6px; backdrop-filter: blur(6px);
-  border: 1px solid var(--warm-200);
+  position: fixed; bottom: 14px; right: 18px; color: var(--text-muted); font-size: 10px;
+  z-index: 100; background: rgba(255,255,255,0.85); padding: 5px 12px;
+  border-radius: 6px; backdrop-filter: blur(6px); border: 1px solid var(--warm-200);
 }
-
-/* RISK MATRIX */
-.risk-matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.risk-cell {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 10px; padding: 16px; box-shadow: var(--card-shadow);
-}
-.risk-cell h4 { font-size: 13px; margin-bottom: 6px; color: var(--text-primary); }
-.risk-cell p { font-size: 12px; color: var(--text-secondary); }
-.risk-cell.high { border-left: 4px solid var(--red-500); }
-.risk-cell.med { border-left: 4px solid var(--gold-400); }
-.risk-cell.low { border-left: 4px solid var(--teal-500); }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
 <div class="nav" id="nav">
-  <span class="nav-section">Setup</span>
-  <button class="nav-btn active" onclick="goSlide(0)">1</button>
-  <button class="nav-btn" onclick="goSlide(1)">2</button>
+  <span class="nav-brand">AGCO <span>Executive Thesis</span></span>
+  <span class="nav-section">Background</span>
+  <button class="nav-btn active" onclick="goSlide(0)">Overview</button>
+  <button class="nav-btn" onclick="goSlide(1)">Revenue</button>
   <div class="nav-sep"></div>
-  <span class="nav-section">Thesis</span>
-  <button class="nav-btn" onclick="goSlide(2)">3</button>
-  <button class="nav-btn" onclick="goSlide(3)">4</button>
-  <button class="nav-btn" onclick="goSlide(4)">5</button>
-  <button class="nav-btn" onclick="goSlide(5)">6</button>
-  <button class="nav-btn" onclick="goSlide(6)">7</button>
-  <button class="nav-btn" onclick="goSlide(7)">8</button>
-  <button class="nav-btn" onclick="goSlide(8)">9</button>
-  <button class="nav-btn" onclick="goSlide(9)">10</button>
-  <button class="nav-btn" onclick="goSlide(10)">11</button>
-  <button class="nav-btn" onclick="goSlide(11)">12</button>
+  <span class="nav-section">Cycle</span>
+  <button class="nav-btn" onclick="goSlide(2)">Ag Cycle</button>
   <div class="nav-sep"></div>
-  <span class="nav-section">AGCO</span>
-  <button class="nav-btn" onclick="goSlide(12)">13</button>
-  <button class="nav-btn" onclick="goSlide(13)">14</button>
-  <button class="nav-btn" onclick="goSlide(14)">15</button>
-  <button class="nav-btn" onclick="goSlide(15)">16</button>
-  <button class="nav-btn" onclick="goSlide(16)">17</button>
-  <button class="nav-btn" onclick="goSlide(17)">18</button>
+  <span class="nav-section">Economics</span>
+  <button class="nav-btn" onclick="goSlide(3)">Unit Econ</button>
   <div class="nav-sep"></div>
-  <span class="nav-section">Value</span>
-  <button class="nav-btn" onclick="goSlide(18)">19</button>
-  <button class="nav-btn" onclick="goSlide(19)">20</button>
-  <button class="nav-btn" onclick="goSlide(20)">21</button>
-  <button class="nav-btn" onclick="goSlide(21)">22</button>
-  <button class="nav-btn" onclick="goSlide(22)">23</button>
-  <button class="nav-btn" onclick="goSlide(23)">24</button>
-  <button class="nav-btn" onclick="goSlide(24)">25</button>
-  <button class="nav-btn" onclick="goSlide(25)">26</button>
+  <span class="nav-section">Theses</span>
+  <button class="nav-btn" onclick="goSlide(4)">Stickiness</button>
+  <button class="nav-btn" onclick="goSlide(5)">Retrofit</button>
+  <button class="nav-btn" onclick="goSlide(6)">Sovereignty</button>
 </div>
 
-<div class="kb-hint">&larr; &rarr; to navigate | slide <span id="slide-counter">1</span>/26</div>
+<div class="kb-hint">&larr; &rarr; to navigate | slide <span id="slide-counter">1</span>/7</div>
 
 <!-- ═══════════════════════════════════════════════════ -->
-<!-- SECTION 1: SETUP (Slides 1-2)                     -->
+<!-- SLIDE 1: AGCO AT A GLANCE                         -->
 <!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 1: Title Hero -->
 <div class="slide active" id="s1">
-  <div class="hero-center">
-    <div class="hero-tagline">NYSE: AGCO &bull; April 2026</div>
-    <div class="slide-title">AGCO: <span>Precision Retrofit Compounder at Trough FCF</span></div>
-    <div class="slide-subtitle" style="max-width:750px;margin:0 auto 40px">Five structural pillars compound FCF per share through the cycle. The precision ag retrofit business is the hidden gem the market is pricing at impairment value.</div>
-    <div class="metrics" style="max-width:1100px;margin:0 auto">
-      <div class="metric"><div class="label">Stock Price</div><div class="value amber">$105</div><div class="detail">April 2026</div></div>
-      <div class="metric"><div class="label">Market Cap</div><div class="value">$7.6B</div><div class="detail">72.4M shares</div></div>
-      <div class="metric"><div class="label">FCF Yield</div><div class="value teal">9.7%</div><div class="detail">$740M record (normalized ~$450-550M)</div></div>
-      <div class="metric"><div class="label">PTx Revenue</div><div class="value green">$860M</div><div class="detail">~30% EBITDA margin</div></div>
-      <div class="metric"><div class="label">EV/EBITDA</div><div class="value blue">9.2x</div><div class="detail">P/FCF 10.3x</div></div>
-      <div class="metric"><div class="label">Target</div><div class="value amber">$130-150</div><div class="detail">+25-45% upside</div></div>
-    </div>
-    <div class="callout" style="max-width:1000px;margin:24px auto 0;text-align:left">
-      <strong>Thesis:</strong> AGCO owns 85% of a $860M precision ag retrofit business (PTx Trimble + Precision Planting) that the market is pricing at impairment value, generated record $740M FCF in a trough year, and is buying back 13% of float at cyclical lows. The retrofit know-how moat -- hardware installation, CAN bus calibration, 18-month dealer certification -- becomes MORE valuable as technology advances faster.
-    </div>
-  </div>
-  <div class="card" style="max-width:1000px;margin:20px auto 0">
-    <h3>FCF Per Share -- Record at Trough, Compounding on Fewer Shares</h3>
-    <canvas id="c1-fcf" style="max-height:220px"></canvas>
-  </div>
-  <div class="source" style="text-align:center;margin-top:16px">Source: AGCO FY2025 10-K, model projections | JAOD Analysis</div>
-</div>
+  <div class="slide-title">AGCO Corporation — <span>At a Glance</span></div>
+  <div class="slide-subtitle">Global #3 in large ag equipment. 67% of revenue is European. Fendt is the crown jewel. Precision ag is the hidden gem.</div>
 
-<!-- SLIDE 2: Industry Overview -->
-<div class="slide" id="s2">
-  <div class="slide-title">Three Companies Control <span>85% of Global Large Ag</span> + Lifetime Revenue</div>
-  <div class="slide-subtitle">Scale moats are permanent. Every tractor generates $1M+ over its 20-year life, and precision ag captures the highest margins.</div>
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <h3>NA Large Ag Equipment Market Share (%)</h3>
-        <canvas id="c2-share"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>Ag Revenue Comparison ($B, FY2025)</h3>
-        <canvas id="c2-rev"></canvas>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col" style="flex:2">
-      <div class="card">
-        <h3>Lifetime Revenue Waterfall -- Single Large Tractor ($K)</h3>
-        <canvas id="c2-waterfall" style="max-height:300px"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>Gross Margin by Revenue Stream</h3>
-        <canvas id="c2-margins" style="max-height:300px"></canvas>
-      </div>
-    </div>
-  </div>
-  <div class="callout">Precision ag carries 47% gross margins vs 20% for whole goods -- AGCO's PTx targets the highest-margin layer of the lifetime revenue stack across ALL brands, not just AGCO equipment.</div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ -->
-<!-- THESIS 1: PRECISION AG RETROFIT (Slides 3-5)      -->
-<!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 3: PTx Arsenal -->
-<div class="slide" id="s3">
-  <div class="slide-title">Thesis 1: PTx Trimble + Precision Planting = <span>The Retrofit Arsenal</span></div>
-  <div class="slide-subtitle">$860M revenue at ~30% EBITDA margins. 100+ OEM partnerships. 14 new products in 2025. Target $2B by 2029.</div>
   <div class="metrics">
-    <div class="metric"><div class="label">PTx Revenue</div><div class="value amber">$860M</div><div class="detail">FY2025</div></div>
-    <div class="metric"><div class="label">EBITDA Margin</div><div class="value teal">~30%</div><div class="detail">~$258M EBITDA</div></div>
-    <div class="metric"><div class="label">OEM Partners</div><div class="value">100+</div><div class="detail">Not just AGCO</div></div>
-    <div class="metric"><div class="label">Elite Dealers</div><div class="value green">70+</div><div class="detail">Doubled in 2025</div></div>
-    <div class="metric"><div class="label">2029 Target</div><div class="value amber">$2B</div><div class="detail">Revenue</div></div>
+    <div class="metric"><div class="label">Stock</div><div class="value blue">$105</div><div class="detail">NYSE: AGCO | Apr 2026</div></div>
+    <div class="metric"><div class="label">Market Cap</div><div class="value">$7.6B</div><div class="detail">72.4M shares</div></div>
+    <div class="metric"><div class="label">Revenue</div><div class="value">$10.1B</div><div class="detail">FY2025 (-30% from peak)</div></div>
+    <div class="metric"><div class="label">FCF Yield</div><div class="value teal">9.7%</div><div class="detail">$740M record FCF</div></div>
+    <div class="metric"><div class="label">EV/EBITDA</div><div class="value">9.2x</div><div class="detail">vs Deere 18.5x</div></div>
   </div>
-  <div class="row">
-    <div class="col" style="flex:2">
-      <div class="card">
-        <h3>PTx Revenue Trajectory ($M)</h3>
-        <canvas id="c3-ptx" style="max-height:320px"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>PTx Margins vs Core Ag Equipment</h3>
-        <canvas id="c3-margins" style="max-height:180px"></canvas>
-      </div>
-      <div class="callout" style="margin-top:0">PTx generates 3.3x the EBITDA margin of core equipment. Every dollar of revenue that shifts from whole goods to precision tech lifts the blended margin. This is the structural margin expansion thesis.</div>
-      <div class="card">
-        <h3>Key Products</h3>
-        <table>
-          <tr><th>Product</th><th>Function</th></tr>
-          <tr><td class="amber">SpeedTube</td><td>High-speed planting (10+ mph)</td></tr>
-          <tr><td class="amber">vDrive / vSet</td><td>Electric row control + singulation</td></tr>
-          <tr><td class="amber">DeltaForce</td><td>Active hydraulic downforce</td></tr>
-          <tr><td class="teal">Trimble GPS</td><td>Market-leader aftermarket guidance</td></tr>
-          <tr><td class="teal">SymphonyVision Duo</td><td>Green-on-green spot spray (2026)</td></tr>
-          <tr><td class="green">OutRun</td><td>Autonomous grain cart (any brand)</td></tr>
-        </table>
-      </div>
-      <div class="callout-teal callout" style="margin-top:0">
-        <strong>Patent win:</strong> Precision Planting defeated Deere at the Federal Circuit (Jan 2025), defending SpeedTube and vSet2 IP. The technology is defensible.
-      </div>
-    </div>
-  </div>
-  <div class="callout">PTx launched 14 new precision ag products in 2025 and doubled its elite dealer count to 70+ while the rest of the ag industry was contracting -- investment through the trough that competitors cannot replicate.</div>
-  <div class="callout-red callout" style="margin-top:12px"><strong>Skeptic's math:</strong> PTx at $860M in 2025 with ~flat 2026 guidance needs ~30% annual growth in 2027-2029 to hit $2B. That is aggressive for ag tech. At $1.2-1.5B (achievable at 15-20% growth), PTx is still a valuable asset at 10-15x EBITDA ($360-675M EBITDA, $3.1-5.8B implied 85% stake value) -- but the presentation must not depend on the $2B target. Our base case uses $1.2B PTx revenue.</div>
-</div>
 
-<!-- SLIDE 4: Mixed Fleet = 65% Market -->
-<div class="slide" id="s4">
-  <div class="slide-title">Mixed-Fleet = 65% of Market + <span>Know-How Moat</span></div>
-  <div class="slide-subtitle">Only ~35% of global ag equipment is Deere. The other 65% needs precision ag too -- and AGCO is the only company that can retrofit all of it.</div>
   <div class="row">
     <div class="col">
       <div class="card">
-        <h3>Global Fleet Composition -- Who Needs Retrofit?</h3>
-        <canvas id="c4-fleet" style="max-height:340px"></canvas>
+        <span class="exhibit-num">Exhibit 1</span>
+        <h3>Revenue by Region — FY2025 ($10.1B)</h3>
+        <canvas id="c1-region"></canvas>
       </div>
-      <div class="callout-teal callout">65% of the global fleet is NOT Deere. That is AGCO's addressable market for precision ag retrofit -- no other company has the hardware, the know-how, AND the 100+ OEM partnerships to serve it.</div>
     </div>
     <div class="col">
       <div class="card">
-        <h3>The Channel Moat: Distribution + Know-How + Scale</h3>
-        <ul class="bullets">
-          <li><strong>Retrofit is PHYSICAL.</strong> Requires installation, calibration, hydraulic integration. Different CAN bus protocol on every brand of tractor.</li>
-          <li><strong>Channel complexity is the real barrier.</strong> PTx has 70+ elite dealers, 200+ CNH dealer partners selling PTx products, and 100+ OEM partnerships. A new entrant (Bosch, Continental) would need to build this fragmented channel from scratch in a market too small and heterogeneous for automotive-scale players to justify. The know-how (18-month certification, multi-brand expertise) compounds the channel advantage.</li>
-          <li><strong>Technology advancing faster = MORE retrofit demand.</strong> Farmer pays $15-40K for retrofit vs $350-500K for a new tractor.</li>
-          <li><strong>OutRun works on Deere tractors.</strong> AGCO's autonomous grain cart directly monetizes Deere's installed base at $15K/yr subscription.</li>
-          <li><strong>No per-acre recurring fees</strong> for core Precision Planting hardware. Farmers trust the brand because they own what they buy.</li>
-        </ul>
+        <span class="exhibit-num">Exhibit 2</span>
+        <h3>Operating Margin by Region — 2-Year Avg (FY2024-25)</h3>
+        <canvas id="c1-ebit"></canvas>
       </div>
     </div>
   </div>
   <div class="card">
-    <h3>Precision Ag Penetration: Massive Whitespace Remains</h3>
-    <canvas id="c4-adoption" style="max-height:220px"></canvas>
-  </div>
-  <div class="callout">Only 27% of US farms and ~25% of EU farms use ANY precision agriculture today. Computer vision and autonomy -- the next wave -- are below 5% adoption. The retrofit TAM is not theoretical; it is 73-75% of the developed-world farm base that has not yet adopted.</div>
-  <div class="card">
-    <h3>Farm Fragmentation Favors Retrofit Over Replacement</h3>
+    <h3>Brand Portfolio</h3>
     <table>
-      <tr><th>Metric</th><th class="r">United States</th><th class="r blue">European Union</th></tr>
-      <tr><td>Total Farms</td><td class="r">1.9M</td><td class="r blue">12.1M</td></tr>
-      <tr><td>Average Farm Size</td><td class="r">187 ha (463 acres)</td><td class="r blue">17.4 ha (43 acres)</td></tr>
-      <tr><td>Farms Under 5 Hectares</td><td class="r">Small %</td><td class="r red">63.8% of all farms</td></tr>
-      <tr><td>Top 3-4% Control</td><td class="r">37% of cropland</td><td class="r">52.5% of land</td></tr>
-      <tr><td>Farm Count Change (2010-2020)</td><td class="r red">-7%</td><td class="r red">-24.8% (3M farms lost)</td></tr>
-      <tr><td>Average Farmer Age</td><td class="r">57.5 years</td><td class="r">57 years</td></tr>
-      <tr><td>Precision Ag Adoption</td><td class="r amber">27%</td><td class="r amber">~25%</td></tr>
+      <tr><th>Brand</th><th>Positioning</th><th>Geography</th><th class="r">% Rev</th><th class="r">Key Metric</th></tr>
+      <tr><td class="blue"><strong>Fendt</strong></td><td>Premium large ag — "the Porsche of tractors"</td><td>Europe (Germany #1)</td><td class="r blue">~45%</td><td class="r blue">24%+ German share, ~17% margin</td></tr>
+      <tr><td><strong>Massey Ferguson</strong></td><td>Global value workhorse</td><td>140+ countries</td><td class="r">~30%</td><td class="r">Broadest global reach</td></tr>
+      <tr><td><strong>Valtra</strong></td><td>Nordic / South America specialist</td><td>Finland, Brazil</td><td class="r">~9%</td><td class="r">Strong in forestry + SA</td></tr>
+      <tr><td class="teal"><strong>PTx Trimble</strong></td><td>Precision ag retrofit (85% owned)</td><td>Global — brand agnostic</td><td class="r teal">~8.5%</td><td class="r teal">$860M rev, ~30% EBITDA margin</td></tr>
     </table>
   </div>
-  <div class="card" style="border-left: 4px solid var(--sapphire-500)">
-    <h3>The Bull Case: From Selling the Tractor to Owning the Operating System</h3>
-    <ul class="bullets">
-      <li><strong>Tractor brands are sticky today because of physical lock-in</strong> -- parts inventory, dealer relationships, operator familiarity, multi-generational loyalty. 80% of farmers hope to transfer their operation to the next generation. The brand on the hood persists across decades.</li>
-      <li><strong>Tomorrow, the precision ag platform will be stickier.</strong> The interactive system through which a farmer manages planting prescriptions, yield data, guidance settings, and autonomous operations becomes the true operating system. Once a farmer learns PTx's interface, calibrates their fields, and builds seasons of agronomic data, switching costs compound every year.</li>
-      <li><strong>Fragmented ownership amplifies this.</strong> EU has 12.1 million farms averaging just 17.4 hectares -- too small to justify a $350-500K new tractor, but perfect for a $5-15K GPS retrofit, then a $10-20K planting upgrade, then $15-30K variable-rate application. Incremental adoption lowers the barrier: each upgrade is individually justifiable and builds on the prior investment.</li>
-      <li><strong>AGCO retrofits competitors' tractors today → wins those customers' data and workflow loyalty → converts them to AGCO equipment purchases tomorrow.</strong> A farmer running PTx guidance on a John Deere tractor is already in AGCO's software ecosystem. When that Deere needs replacing in 5-10 years, the switching cost is now AWAY from the PTx platform, not away from Deere.</li>
-      <li><strong>Farmers are fragmented, not corporatized.</strong> Unlike most industries, agriculture remains dominated by family operations protected by enormous political power -- CAP subsidies (EUR 307B), biofuel mandates, farm-state voting blocks that successfully blocked right-to-repair in 5 of 6 US states. This fragmentation means no single corporate buyer can standardize on Deere's closed ecosystem. Millions of independent operators will choose the open platform that works on whatever equipment they already own.</li>
-    </ul>
-  </div>
-  <div class="callout-teal callout"><strong>The analogy:</strong> Deere is building iOS -- beautiful, integrated, expensive, locked-in. PTx is building Android -- open, works on every device, wins on breadth and accessibility. In a fragmented market of 14 million farms (US + EU combined) where 73% have not yet adopted precision ag, Android wins.</div>
-  <div class="callout"><strong>Honest assessment:</strong> PTx leads in retrofit breadth (guidance, steering, planting hardware across 100+ brands) and cost (no per-acre subscription fees vs Deere's usage-based model). PTx lags in green-on-green spraying (SymphonyVision Duo is 4 years behind See &amp; Spray) and data/AI (Deere has 330M+ engaged acres feeding models). The thesis does not require PTx to beat Deere on technology -- it requires PTx to be <em>good enough</em> for the 65% of the fleet that will never be Deere. Aftermarket competitors (Ag Leader, Topcon, Reichhardt) exist but lack PTx's breadth: no single competitor offers guidance + planting + spraying + autonomy in one mixed-fleet platform.</div>
+  <div class="callout">67% of revenue and virtually all profit is European. North America is losing money at trough (-6.7% margin) but that is the recovery opportunity. Fendt generates premium margins even in a downturn. PTx Trimble is the hidden asset — $860M of brand-agnostic precision ag revenue at 30% margins.</div>
+  <div class="source">Source: AGCO FY2025 10-K, SEC EDGAR | JAOD Analysis</div>
 </div>
 
-<!-- SLIDE 5: PTx SOTP -->
-<div class="slide" id="s5">
-  <div class="slide-title">PTx SOTP = Hidden Gem Worth <span>34-51% of Market Cap</span></div>
-  <div class="slide-subtitle">The market is pricing PTx at impairment value ($354M write-down) despite the underlying business generating $258M EBITDA at 30% margins.</div>
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SLIDE 2: REVENUE TRENDS & BUSINESS MIX             -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="slide-title">Revenue History — <span>$14.4B Peak to $10.1B Trough</span></div>
+  <div class="slide-subtitle">Revenue declined 30% from 2023 peak. FCF hit a record $740M in the same year — operational flexibility is the structural advantage the market isn't pricing.</div>
+
   <div class="row">
-    <div class="col" style="flex:2">
+    <div class="col" style="flex:1.3">
       <div class="card">
-        <h3>Sum-of-the-Parts Waterfall ($/Share)</h3>
-        <canvas id="c5-sotp" style="max-height:360px"></canvas>
+        <span class="exhibit-num">Exhibit 3</span>
+        <h3>Revenue ($B) + Free Cash Flow ($M) — 10 Year</h3>
+        <canvas id="c2-revfcf" style="max-height:340px"></canvas>
       </div>
     </div>
     <div class="col">
       <div class="card">
-        <h3>SOTP Detail</h3>
-        <table>
-          <tr><th>Segment</th><th class="r">EBITDA</th><th class="r">Multiple</th><th class="r">EV</th></tr>
-          <tr><td class="amber">PTx (85% stake)</td><td class="r">$258M</td><td class="r">10-15x</td><td class="r amber">$2.6-3.9B</td></tr>
-          <tr><td>Core Ag Equipment</td><td class="r">$740-920M</td><td class="r">6-7x</td><td class="r">$4.4-6.4B</td></tr>
-          <tr><td style="border-top:2px solid var(--warm-300)"><strong>Total EV</strong></td><td class="r" style="border-top:2px solid var(--warm-300)"></td><td class="r" style="border-top:2px solid var(--warm-300)"></td><td class="r" style="border-top:2px solid var(--warm-300)"><strong>$7.0-10.3B</strong></td></tr>
-          <tr><td class="red">Less: Net Debt</td><td class="r"></td><td class="r"></td><td class="r red">($1.76B)</td></tr>
-          <tr><td class="green"><strong>Equity Value</strong></td><td class="r"></td><td class="r"></td><td class="r green"><strong>$5.2-8.5B</strong></td></tr>
-          <tr><td class="amber"><strong>Per Share (72.4M)</strong></td><td class="r"></td><td class="r"></td><td class="r amber"><strong>$72-$117</strong></td></tr>
-        </table>
+        <span class="exhibit-num">Exhibit 4</span>
+        <h3>Revenue by Region ($B) — Stacked</h3>
+        <canvas id="c2-stack" style="max-height:340px"></canvas>
       </div>
     </div>
   </div>
-  <div class="callout-red callout">We use 10-15x for PTx (not 15-20x standalone tech multiples) because PTx is embedded in a cyclical ag parent with no separation path. Even at conservative 10x, AGCO's 85% stake is worth $2.2B -- 29% of market cap for a business generating recurring-ish revenue at 30% margins. The $354M goodwill impairment was driven by cyclical NA weakness, not PTx business deterioration -- PTx has 100+ OEM partnerships, doubled elite dealers, and launched 14 products DURING the downturn.</div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ -->
-<!-- THESIS 2: TROUGH FCF POWER (Slides 6-7)           -->
-<!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 6: Record FCF -->
-<div class="slide" id="s6">
-  <div class="slide-title">Thesis 2: Record <span>$740M FCF</span> on 30% Lower Revenue</div>
-  <div class="slide-subtitle">AGCO generated more free cash flow in its worst revenue year since 2017 than in any prior year in company history.</div>
-  <div class="metrics">
-    <div class="metric"><div class="label">FY2025 FCF</div><div class="value amber">$740M</div><div class="detail">Record high</div></div>
-    <div class="metric"><div class="label">FCF Yield</div><div class="value teal">9.7%</div><div class="detail">At $7.6B mkt cap</div></div>
-    <div class="metric"><div class="label">Conversion</div><div class="value green">188%</div><div class="detail">Of adj net income</div></div>
-    <div class="metric"><div class="label">Capex Cut</div><div class="value blue">-52%</div><div class="detail">$248M vs $518M peak</div></div>
-  </div>
-  <div class="card">
-    <h3>FCF ($M) vs Revenue ($B) -- Record Cash on Declining Sales</h3>
-    <canvas id="c6-fcfhist" style="max-height:340px"></canvas>
-  </div>
   <div class="row">
+    <div class="col">
+      <div class="card">
+        <h3>Key Financial Metrics</h3>
+        <table>
+          <tr><th>Metric</th><th class="r">FY2023 (Peak)</th><th class="r">FY2025 (Trough)</th><th class="r">Change</th></tr>
+          <tr><td>Revenue</td><td class="r">$14.41B</td><td class="r">$10.08B</td><td class="r red">-30%</td></tr>
+          <tr><td>Free Cash Flow</td><td class="r">$585M</td><td class="r green">$740M</td><td class="r green">+26% (record)</td></tr>
+          <tr><td>Capex</td><td class="r">$518M (3.6%)</td><td class="r">$248M (2.5%)</td><td class="r green">-52%</td></tr>
+          <tr><td>Shares Outstanding</td><td class="r">74.9M</td><td class="r">72.4M</td><td class="r green">-3.3%</td></tr>
+          <tr><td>FCF/Share</td><td class="r">$7.81</td><td class="r green">$9.94</td><td class="r green">+27% (record)</td></tr>
+        </table>
+      </div>
+    </div>
     <div class="col">
       <div class="card">
         <h3>Working Capital Tailwinds (FY2025)</h3>
         <table>
-          <tr><th>Source</th><th class="r">Tailwind</th></tr>
+          <tr><th>Source</th><th class="r">Cash Released</th></tr>
           <tr><td>Inventory reduction</td><td class="r green">+$237.5M</td></tr>
           <tr><td>Receivables improvement</td><td class="r green">+$231.0M</td></tr>
-          <tr><td>Capex discipline ($248M vs $518M peak)</td><td class="r green">+$270M savings</td></tr>
+          <tr><td>Capex discipline</td><td class="r green">+$270M savings</td></tr>
+        </table>
+        <div class="callout" style="margin-top:12px"><strong>Normalized trough FCF is ~$400-500M.</strong> The $740M proves operational flexibility, not sustainable run-rate. We anchor on $450-550M for valuation.</div>
+      </div>
+    </div>
+  </div>
+  <div class="source">Source: AGCO 10-K FY2016-2025, SEC EDGAR XBRL | JAOD Analysis</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SLIDE 3: THE AG CYCLE                              -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="slide-title">The Ag Cycle — <span>At Trough, Recovery in Sight</span></div>
+  <div class="slide-subtitle">All three OEMs signal 2025-2026 is the bottom. Deere's 220+ HP field inventory is at a 17-year low. The cycle turns.</div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 5</span>
+        <h3>Net Farm Income ($B) vs Deere & AGCO Revenue ($B)</h3>
+        <canvas id="c3-macro" style="max-height:300px"></canvas>
+        <div class="source">Correlation: Farm Income → Equipment Revenue r=0.854</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 6</span>
+        <h3>EU Tractor Registrations (000s)</h3>
+        <canvas id="c3-eureg" style="max-height:300px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Cycle Signals — Where We Are and Where We're Going</h3>
+    <table>
+      <tr><th>Signal</th><th>Current Reading</th><th>Implication</th></tr>
+      <tr><td><strong>OEM Guidance</strong></td><td>All 3 (DE, AGCO, CNH) say 2025-2026 is the bottom</td><td class="green">Trough confirmed by all participants</td></tr>
+      <tr><td><strong>Deere 220+ HP Inventory</strong></td><td class="blue">17-year low (Nov 2025)</td><td class="green">No overhang — recovery demand hits lean pipeline</td></tr>
+      <tr><td><strong>Canada Combine Sales</strong></td><td class="green">YTD Feb 2026: +85.5% YoY</td><td class="green">First positive volume signal — leads US by 6-12mo</td></tr>
+      <tr><td><strong>US 100+ HP Tractors</strong></td><td class="red">17,648 units (-36% from peak)</td><td>Still depressed, but comps get easier H2 2026</td></tr>
+      <tr><td><strong>Net Farm Income</strong></td><td>$180B (2025E, with payments)</td><td>Stable with government support; $109B without</td></tr>
+      <tr><td><strong>Farm Profitability</strong></td><td class="red">Median farm income: -$1,498 (2025)</td><td class="red">&gt;50% of farm households lose money on operations; 55% of crop farms had negative OPM in 2024</td></tr>
+      <tr><td><strong>Corn Price</strong></td><td>$4.35/bu (breakeven $4.90-5.60)</td><td class="red">Below production cost — squeezing farmers</td></tr>
+      <tr><td><strong>Farm Bankruptcies</strong></td><td>315 filings (+46% YoY)</td><td class="gold">Elevated but manageable (peak was 599 in 2019)</td></tr>
+    </table>
+  </div>
+  <div class="callout"><strong>Our view:</strong> Revenue troughed in FY2025. Production normalization begins H2 2026. Full recovery into 2027-2028 driven by: (1) inventory replenishment after 30%+ dealer destocking, (2) pent-up replacement demand as aging fleets hit end-of-life, (3) EU consolidation driving premium equipment purchases, (4) precision ag retrofit spend that is less cyclical than whole goods. We do NOT need commodity prices to spike — just stabilize.</div>
+  <div class="source">Source: USDA, BLS, CEMA, Deere/AGCO/CNH 10-K filings, AEM retail data | JAOD Analysis</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SLIDE 4: UNIT ECONOMICS                            -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="slide-title">Unit Economics — <span>$1M Per Tractor Over 20 Years</span></div>
+  <div class="slide-subtitle">A tractor sale is the beginning of a relationship, not the end. Precision ag carries 2.4x the margin of whole goods. AGCO trades at half Deere's multiple.</div>
+
+  <div class="row">
+    <div class="col" style="flex:1.3">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 7</span>
+        <h3>Lifetime Revenue — Single Large Tractor ($K)</h3>
+        <canvas id="c4-waterfall" style="max-height:300px"></canvas>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 8</span>
+        <h3>Gross Margin by Revenue Stream</h3>
+        <canvas id="c4-margins" style="max-height:300px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h3>Peer Valuation Comparison</h3>
+        <table>
+          <tr><th>Metric</th><th class="r blue">AGCO</th><th class="r">CNH</th><th class="r">Deere</th><th class="r">CAT</th></tr>
+          <tr><td>EV/EBITDA</td><td class="r blue"><strong>9.2x</strong></td><td class="r">6.2x</td><td class="r">18.5x</td><td class="r">14.5x</td></tr>
+          <tr><td>FCF Yield (mid-cycle)</td><td class="r blue"><strong>8.6%</strong></td><td class="r">8.2%</td><td class="r">2.7%</td><td class="r">3.8%</td></tr>
+          <tr><td>P/FCF (current)</td><td class="r blue"><strong>10.3x</strong></td><td class="r">~12x</td><td class="r">~37x</td><td class="r">~26x</td></tr>
+          <tr><td>Capex (% Rev)</td><td class="r blue">2.5%</td><td class="r">~3%</td><td class="r">~5%</td><td class="r">~4%</td></tr>
+          <tr><td>% Revenue from Tech/Precision</td><td class="r blue">~9%</td><td class="r">~4%</td><td class="r">~15%</td><td class="r">~3%</td></tr>
+          <tr><td>Large Tractor $/HP</td><td class="r blue">~$1,100</td><td class="r">$1,059</td><td class="r red">$1,403 (+32%)</td><td class="r">N/A</td></tr>
+        </table>
+        <div class="source">Deere trades at 18.5x EV/EBITDA. AGCO at 9.2x. The gap is driven by tech perception.</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>What the Sale Looks Like</h3>
+        <table>
+          <tr><th>Category</th><th class="r">Revenue</th><th class="r">Margin</th></tr>
+          <tr><td>Large tractor (300+ HP)</td><td class="r">$350-500K</td><td class="r">~20%</td></tr>
+          <tr><td>Parts over 20yr life</td><td class="r">$225K</td><td class="r green">~42%</td></tr>
+          <tr><td>Service / labor</td><td class="r">$150K</td><td class="r green">~35%</td></tr>
+          <tr><td>Financing</td><td class="r">$100K</td><td class="r">~15%</td></tr>
+          <tr><td class="blue">Precision ag / subscriptions</td><td class="r blue">$75K+</td><td class="r green"><strong>~47%</strong></td></tr>
+          <tr style="border-top:2px solid var(--warm-200)"><td><strong>Total Lifetime Value</strong></td><td class="r"><strong>$1,000K+</strong></td><td class="r">Blended ~25%</td></tr>
+        </table>
+        <div class="source">Precision ag is a fraction of the sale but carries 2.4x the margin.</div>
+      </div>
+    </div>
+  </div>
+  <div class="callout"><strong>The Fendt pitch:</strong> "You're buying the lowest total cost of ownership in large ag. CVT transmission eliminates clutch wear and delivers 5-8% fuel savings. Resale values hold 15-20% above comparable equipment at 10 years." <strong>The PTx pitch:</strong> "Keep your Deere tractor — we can retrofit it with guidance and spraying tech that's as good as new equipment for a fraction of the price. No per-acre subscription fees. Works on any brand." Deere charges $1,403/HP vs Case IH $1,059/HP — a 32% premium. Fendt sits at ~$1,100/HP with better technology per dollar.</div>
+  <div class="source">Source: AGCO 10-K, Deere 10-K, CNH 10-K, Caterpillar 10-K, industry sources | JAOD Analysis</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SLIDE 5: THESIS 1 — CUSTOMER STICKINESS            -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="slide-title">Thesis 1: Customers Are <span>Generationally Locked In</span></div>
+  <div class="slide-subtitle">80% of farmers hope to transfer their operation to the next generation. The brand on the hood persists across decades. This is the stickiest customer base in industrial equipment.</div>
+
+  <div class="metrics">
+    <div class="metric"><div class="label">Avg Farmer Age</div><div class="value">57.5</div><div class="detail">US average (USDA)</div></div>
+    <div class="metric"><div class="label">Succession Intent</div><div class="value green">80%</div><div class="detail">Plan to transfer to next gen</div></div>
+    <div class="metric"><div class="label">Fendt Share (DE)</div><div class="value blue">24%+</div><div class="detail">And growing at trough</div></div>
+    <div class="metric"><div class="label">PTx Dealer Network</div><div class="value teal">2,500+</div><div class="detail">Locations (incl. Deere dealers)</div></div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h3>Why Customers Don't Switch — 5 Lock-In Layers</h3>
+        <table>
+          <tr><th>Lock-In Type</th><th>Mechanism</th></tr>
+          <tr><td class="blue"><strong>Financial</strong></td><td>Loss on trade-in value, obsolete parts inventory (~$50-100K sunk), re-training costs</td></tr>
+          <tr><td class="blue"><strong>Procedural</strong></td><td>Time to evaluate alternatives, learning curve on new equipment, dealer relationship establishment</td></tr>
+          <tr><td class="blue"><strong>Relational</strong></td><td>Institutional knowledge from current dealer, personal relationships built over years/decades, trusted service history</td></tr>
+          <tr><td class="blue"><strong>Psychological</strong></td><td>Multi-generational brand loyalty — "Deere family" or "Fendt family." 80% of farmers hope to transfer operation. Brand persists across generations.</td></tr>
+          <tr><td class="teal"><strong>Technology</strong></td><td>Data migration (yield maps, planting prescriptions, field boundaries), guidance calibration, prescription transfer. <strong>This layer is GROWING.</strong></td></tr>
         </table>
       </div>
     </div>
     <div class="col">
       <div class="card">
-        <h3>Why This Matters</h3>
-        <ul class="bullets">
-          <li><strong>No take-or-pay contracts.</strong> AGCO can throttle production rapidly -- flexible supplier relationships plus cross-training.</li>
-          <li><strong>Operational flexibility = FCF machine.</strong> Revenue fell 30% but cash flow hit a record because working capital drained fast.</li>
-        </ul>
+        <span class="exhibit-num">Exhibit 9</span>
+        <h3>Recovery Return — AGCO Outperforms (24-Month %)</h3>
+        <canvas id="c5-recovery" style="max-height:260px"></canvas>
+      </div>
+      <div class="callout-teal callout" style="margin-top:16px">
+        <strong>The critical insight:</strong> Tractor brands are sticky today because of <em>physical</em> lock-in — parts, dealers, operator familiarity. In 5 years, the <em>software platform</em> will be stickier than the iron. The farmer who builds 5 years of yield data, planting prescriptions, and field maps on a precision ag platform has switching costs that compound every season.
       </div>
     </div>
   </div>
-  <div class="callout">AGCO generated more free cash flow in its worst revenue year since 2017 than in any prior year in company history -- this operational flexibility is the hidden structural advantage the market is not pricing.</div>
-  <div class="callout-red callout" style="margin-top:12px"><strong>Intellectual honesty:</strong> ~$470M of the $740M came from one-time working capital release (inventory -$237M, receivables -$231M) and capex cuts ($248M vs $518M peak). Normalized trough FCF is ~$400-500M. The $740M proves operational flexibility, not sustainable run-rate. We anchor on normalized $450-550M for valuation.</div>
+  <div class="callout"><strong>For the user to extend:</strong> Add churn data, dealer retention rates, customer survey data, and specific examples of multi-generational brand loyalty from expert calls.</div>
+  <div class="source">Source: USDA Census of Agriculture, AGCO 10-K, industry expert interviews | JAOD Analysis</div>
 </div>
 
-<!-- SLIDE 7: FCF Conversion -->
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SLIDE 6: THESIS 2 — RETROFIT AS PLATFORM STRATEGY  -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="slide-title">Thesis 2: Retrofit Is the <span>Trojan Horse Into 65% of the Fleet</span></div>
+  <div class="slide-subtitle">Help a customer retrofit with precision ag → they adopt your platform → they become sticky to your software, not just your iron. The sensors aren't differentiated — the platform is.</div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 10</span>
+        <h3>PTx Revenue Trajectory ($M)</h3>
+        <canvas id="c6-ptx" style="max-height:280px"></canvas>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <span class="exhibit-num">Exhibit 11</span>
+        <h3>Global Fleet — 65% Is NOT Deere</h3>
+        <canvas id="c6-fleet" style="max-height:280px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h3>The Math: Retrofit vs Replace</h3>
+        <table>
+          <tr><th>Approach</th><th class="r">Cost</th><th class="r">Precision Ag?</th><th class="r">Downtime</th></tr>
+          <tr><td class="red"><strong>Buy new Deere w/ tech</strong></td><td class="r red">$350-500K</td><td class="r green">Yes (locked to Deere)</td><td class="r red">Weeks (delivery + setup)</td></tr>
+          <tr><td class="teal"><strong>Retrofit existing tractor</strong></td><td class="r teal">$15-50K</td><td class="r green">Yes (brand agnostic)</td><td class="r green">1-2 days</td></tr>
+          <tr><td class="blue"><strong>Add autonomy (OutRun)</strong></td><td class="r blue">$50-60K + $15K/yr</td><td class="r green">Yes (works on Deere)</td><td class="r green">1 day install</td></tr>
+        </table>
+        <div style="color:var(--sapphire-500);font-size:12px;margin-top:10px;font-weight:600">Retrofit is 7-33x cheaper. And it works on the tractor you already own.</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Why DE's Premium Is Vulnerable</h3>
+        <table>
+          <tr><th>Factor</th><th>Status</th></tr>
+          <tr><td>DE EV/EBITDA premium</td><td class="blue">18.5x vs AGCO 9.2x (2x gap)</td></tr>
+          <tr><td>Source of premium</td><td>Technology / platform perception</td></tr>
+          <tr><td>Are sensors differentiated?</td><td class="green"><strong>No.</strong> Expert: "On the hardware side — automation, sensors, technology cost — all three OEMs are very similar. There is no meaningful hardware differentiation."</td></tr>
+          <tr><td>Is the platform differentiated?</td><td class="gold">Yes — but platforms can be built</td></tr>
+          <tr><td>AGCO FendtONE platform</td><td class="teal">Unified OS across brands, modern architecture</td></tr>
+          <tr><td>Deere P/E vs AGCO P/E</td><td class="blue">32x vs 12x — nearly all tech premium</td></tr>
+          <tr><td>AI/ML projects in pipeline</td><td class="teal">50 completed, 160 in pipeline</td></tr>
+          <tr><td>Can pure tech startups compete?</td><td class="red"><strong>No.</strong> Need heavy iron + dealer network</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="callout"><strong>The platform play:</strong> AGCO retrofits a CNH or "other" tractor with PTx guidance and Precision Planting hardware. The farmer builds 3-5 years of yield data, planting prescriptions, and field maps on AGCO's platform. When that old tractor needs replacing, the switching cost is now <em>away from the AGCO platform</em>, not away from the old tractor brand. This is how you convert 65% of the global fleet from competitors to AGCO customers — one retrofit at a time.</div>
+  <div class="callout-gold callout" style="margin-top:12px"><strong>The AI tailwind:</strong> I don't think the market has appropriately priced AI disruption in ag tech. In the next 12 months, examples of AI-driven precision ag (computer vision spraying, autonomous operations, yield prediction) will accelerate. This is <em>bullish for AGCO</em> because: (1) AI commoditizes the sensor layer — hardware becomes interchangeable, (2) platforms become easier to build and iterate on, (3) AGCO's open ecosystem benefits from AI faster than Deere's closed one, (4) but pure tech companies still can't enter because you need the heavy iron and the dealer network. SymphonyVision Duo already delivers 77% herbicide savings in beta — this catches up to Deere's See &amp; Spray.</div>
+  <div class="source">Source: AGCO 10-K, PTx Trimble filings, expert interviews, Deere 10-K | JAOD Analysis</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SLIDE 7: THESIS 3 — EUROPEAN SOVEREIGNTY           -->
+<!-- ═══════════════════════════════════════════════════ -->
 <div class="slide" id="s7">
-  <div class="slide-title">FCF Conversion: <span>Buy the High-Conversion Years</span></div>
-  <div class="slide-subtitle">The market prices AGCO off $5.28 adj EPS (~20x) while the company generates $9.94/share in FCF. The divergence IS the opportunity.</div>
-  <div class="row">
-    <div class="col" style="flex:2">
-      <div class="card">
-        <h3>FCF vs Adjusted Net Income ($M)</h3>
-        <canvas id="c7-conversion" style="max-height:340px"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>FCF Conversion Through the Cycle</h3>
-        <table>
-          <tr><th>Year</th><th class="r">Adj NI</th><th class="r">FCF</th><th class="r">Conv.</th></tr>
-          <tr><td>2021</td><td class="r">$780M</td><td class="r">$390M</td><td class="r">50%</td></tr>
-          <tr><td>2022</td><td class="r">$850M</td><td class="r">$450M</td><td class="r">53%</td></tr>
-          <tr><td>2023</td><td class="r">$1,100M</td><td class="r">$585M</td><td class="r">53%</td></tr>
-          <tr><td>2024</td><td class="r">$350M</td><td class="r">$297M</td><td class="r">85%</td></tr>
-          <tr><td class="amber"><strong>2025</strong></td><td class="r amber">$393M</td><td class="r amber"><strong>$740M</strong></td><td class="r amber"><strong>188%</strong></td></tr>
-        </table>
-      </div>
-      <div class="callout" style="margin-top:0">
-        <strong>The pattern:</strong> Conversion is low in boom years (inventory builds, capex spending) and high in bust years (inventory liquidation, capex cuts). You are buying in the high-conversion years when FCF exceeds earnings.
-      </div>
-    </div>
-  </div>
-  <div class="callout-teal callout">The market prices AGCO off $5.28 adj EPS (~20x P/E) while the company generates $9.94/share in free cash flow -- the P/FCF is only 10.3x, which is the real metric for a capital-intensive cyclical at trough.</div>
-</div>
+  <div class="slide-title">Thesis 3: European <span>Sovereignty Protects AGCO</span></div>
+  <div class="slide-subtitle">67% of AGCO's revenue is European. The EU is increasingly protective of its agricultural technology stack. Fendt is German, not American — and that matters.</div>
 
-<!-- ═══════════════════════════════════════════════════ -->
-<!-- THESIS 3: EUROPEAN FORTRESS (Slides 8-9)          -->
-<!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 8: Fendt Premium -->
-<div class="slide" id="s8">
-  <div class="slide-title">Thesis 3: Fendt = <span>Premium Leader, 14.9% EME Margins</span></div>
-  <div class="slide-subtitle">Europe IS the company: 67% of revenue, nearly all profit. Fendt delivered "a standout year in almost every region" with approaching 17% margins.</div>
   <div class="metrics">
-    <div class="metric"><div class="label">EME Revenue</div><div class="value amber">$6.74B</div><div class="detail">67% of total</div></div>
-    <div class="metric"><div class="label">EME EBIT</div><div class="value teal">$1,007M</div><div class="detail">14.9% margin</div></div>
-    <div class="metric"><div class="label">Fendt Germany</div><div class="value green">24%+</div><div class="detail">Market share</div></div>
-    <div class="metric"><div class="label">185+ kW Tractors</div><div class="value blue">+20%</div><div class="detail">In 2024, mkt fell 8%</div></div>
+    <div class="metric"><div class="label">AGCO EME Revenue</div><div class="value blue">$6.74B</div><div class="detail">67% of total</div></div>
+    <div class="metric"><div class="label">EU Total Farms</div><div class="value">12.1M</div><div class="detail">Avg 17.4 hectares</div></div>
+    <div class="metric"><div class="label">CAP Budget</div><div class="value green">€307B</div><div class="detail">2021-2027 cycle</div></div>
+    <div class="metric"><div class="label">Farm Decline</div><div class="value red">-24.8%</div><div class="detail">2010-2020 (3M farms lost)</div></div>
   </div>
+
   <div class="row">
-    <div class="col" style="flex:2">
+    <div class="col">
       <div class="card">
-        <h3>Revenue by Region ($B, Stacked) 2020-2025</h3>
-        <canvas id="c8-region" style="max-height:320px"></canvas>
+        <span class="exhibit-num">Exhibit 12</span>
+        <h3>Revenue Concentration — AGCO vs Deere</h3>
+        <canvas id="c7-geo" style="max-height:280px"></canvas>
       </div>
     </div>
     <div class="col">
       <div class="card">
-        <h3>Brand Portfolio</h3>
+        <h3>Why Sovereignty Is Bullish for AGCO</h3>
         <table>
-          <tr><th>Brand</th><th>Position</th><th>Region</th></tr>
-          <tr><td class="amber">Fendt</td><td>Premium leader</td><td>Europe / expanding globally</td></tr>
-          <tr><td class="teal">Massey Ferguson</td><td>Volume / value</td><td>Brazil, Africa, Asia</td></tr>
-          <tr><td class="blue">Valtra</td><td>Forestry / specialty</td><td>Nordics, South America</td></tr>
-        </table>
-      </div>
-      <div class="card">
-        <h3>EU Farm Demographics</h3>
-        <ul class="bullets">
-          <li><strong>EU farms -37% since 2005.</strong> Consolidation = larger farms buying premium equipment (Fendt).</li>
-          <li><strong>Average EU farmer age: 57.</strong> Succession drives modernization and technology adoption.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="callout">Fendt's premium positioning benefits structurally from EU farm consolidation: fewer, larger farms spend more per unit on premium equipment. The 185+ kW tractor segment grew 20% in 2024 even as the overall market fell 8%.</div>
-</div>
-
-<!-- SLIDE 9: EU Policy + Registrations -->
-<div class="slide" id="s9">
-  <div class="slide-title">EU Sovereignty + CAP + <span>Stage V Enforcement</span></div>
-  <div class="slide-subtitle">Policy pivoted from Green Deal restriction to sovereignty-driven productivity. CAP EUR 307B supports equipment modernization. Registrations at 10-year low = pent-up demand.</div>
-  <div class="card">
-    <h3>EU Policy Timeline -- From Green to Sovereignty</h3>
-    <table>
-      <tr><th>Date</th><th>Event</th><th>Impact on AGCO</th></tr>
-      <tr><td class="amber">Feb 2022</td><td>Russia invades Ukraine</td><td>Food security becomes top EU priority</td></tr>
-      <tr><td>May 2024</td><td>Fallow requirements permanently removed</td><td>More acreage, more equipment needed</td></tr>
-      <tr><td class="red">Feb 2025</td><td>"Vision for Agriculture" replaces Farm-to-Fork</td><td>Productivity prioritized over restriction</td></tr>
-      <tr><td class="teal">Nov 2023</td><td>RED III: 29% renewable transport by 2030</td><td>Biofuel crop demand locked through 2035</td></tr>
-      <tr><td class="green">2023-2027</td><td>CAP: EUR 307B programming period</td><td>Equipment modernization for ~400K EU farms</td></tr>
-      <tr><td class="blue">Jan 2024</td><td>Stage V emissions enforcement</td><td>Pre-2000 fleet replacement accelerated</td></tr>
-    </table>
-  </div>
-  <div class="card">
-    <h3>EU Tractor Registrations (Units, 000s) -- 10-Year Low</h3>
-    <canvas id="c9-eureg" style="max-height:260px"></canvas>
-  </div>
-  <div class="callout">EU tractor registrations hit a 10-year low at 144,400 units in 2024 -- a large share of Western European tractors were manufactured before 2000 and are incompatible with precision ag. Stage V emissions enforcement accelerates replacement into Fendt's premium sweet spot.</div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ -->
-<!-- THESIS 4: CAPITAL RETURN (Slide 10)               -->
-<!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 10: Buyback + TAFE -->
-<div class="slide" id="s10">
-  <div class="slide-title">Thesis 4: <span>$1B Buyback = 13% of Float</span> at Trough + TAFE Settlement</div>
-  <div class="slide-subtitle">Buying back 13% of shares at cyclical trough prices is vastly superior to paying $5/share in special dividends. TAFE overhang resolved.</div>
-  <div class="metrics">
-    <div class="metric"><div class="label">Buyback Auth</div><div class="value amber">$1B</div><div class="detail">~9.5M shares at $105</div></div>
-    <div class="metric"><div class="label">Q4 2025 Pace</div><div class="value teal">$250M</div><div class="detail">In one quarter</div></div>
-    <div class="metric"><div class="label">TAFE Cash</div><div class="value green">$260M</div><div class="detail">Received for TAFE stake</div></div>
-    <div class="metric"><div class="label">TAFE Stake</div><div class="value">16.3%</div><div class="detail">Retains shares, loses board</div></div>
-  </div>
-  <div class="row">
-    <div class="col" style="flex:2">
-      <div class="card">
-        <h3>Share Count Trajectory (M) -- Accelerating Shrinkage</h3>
-        <canvas id="c10-shares" style="max-height:320px"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>TAFE Settlement (July 2025)</h3>
-        <ul class="bullets">
-          <li><strong>TAFE retains 16.3%</strong> but LOSES board seat.</li>
-          <li><strong>AGCO gets $260M cash</strong> for its 20.7% TAFE stake.</li>
-          <li><strong>All litigation dropped.</strong> Commercial agreements terminated.</li>
-          <li><strong>TAFE cannot exceed 16.3%</strong> and must participate proportionally in buybacks.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Capital Return Regime Shift</h3>
-        <table>
-          <tr><th>Year</th><th class="r">Regular Div</th><th class="r">Special Div</th><th class="r">Buyback</th></tr>
-          <tr><td>2023</td><td class="r">$1.16</td><td class="r amber">$5.00</td><td class="r">Minimal</td></tr>
-          <tr><td>2024</td><td class="r">$1.16</td><td class="r">$2.50</td><td class="r">Minimal</td></tr>
-          <tr><td class="amber"><strong>2025</strong></td><td class="r">$1.16</td><td class="r">$0</td><td class="r green"><strong>$250M+</strong></td></tr>
+          <tr><th>Factor</th><th>Implication</th></tr>
+          <tr><td class="blue"><strong>Anti-trust</strong></td><td>EU regulators will resist further Deere market share gains. Deere's acquisitions (Wirtgen, HarvestLab) face scrutiny. A healthy European competitor (Fendt/AGCO) is in the EU's interest.</td></tr>
+          <tr><td class="blue"><strong>Domestic preference</strong></td><td>"Should the US be running European agriculture?" Fendt is manufactured in Marktoberdorf, Germany. Valtra in Suolahti, Finland. AGCO's European brands have European roots.</td></tr>
+          <tr><td class="blue"><strong>China protection</strong></td><td>Chinese manufacturers (YTO, Lovol, Foton) are expanding aggressively. The EU will protect premium European ag brands — just as it protects automotive (tariffs on Chinese EVs).</td></tr>
+          <tr><td class="blue"><strong>Data sovereignty</strong></td><td>EU GDPR mindset extends to farm data. European farmers will increasingly demand that yield data, field maps, and prescriptions stay on European platforms.</td></tr>
+          <tr><td class="green"><strong>CAP subsidies</strong></td><td>€307B in 2021-2027 cycle. Subsidies increasingly tied to precision ag adoption (eco-schemes). Fendt + PTx are best positioned to capture this.</td></tr>
         </table>
       </div>
     </div>
   </div>
-  <div class="callout">Buying back 13% of your shares at cyclical trough prices is vastly superior to paying $5/share in special dividends -- the shift from variable dividends to buybacks is a fundamental regime change that compounds FCF/share through every future cycle.</div>
-  <div class="callout-red callout" style="margin-top:12px"><strong>Intellectual honesty:</strong> AGCO's 10-year buyback track record is mediocre: 85.5M to 72.4M shares = 1.7%/year CAGR. One quarter of $250M does not establish a new pattern. The $1B authorization is a ceiling, not a commitment. If the cycle extends, management may (and should) prioritize debt paydown over buybacks at 2.6x net debt/EBITDA. Frame this as "potential catalyst if sustained" rather than guaranteed compounding.</div>
+  <div class="card">
+    <h3>EU Farm Consolidation → Fendt's Sweet Spot</h3>
+    <table>
+      <tr><th>Metric</th><th class="r">2010</th><th class="r">2020</th><th class="r">Change</th><th>Implication</th></tr>
+      <tr><td>Total EU Farms</td><td class="r">16.1M</td><td class="r">12.1M</td><td class="r red">-24.8%</td><td>Consolidation accelerating</td></tr>
+      <tr><td>Farms &lt;5 hectares</td><td class="r">—</td><td class="r">63.8%</td><td class="r">—</td><td>Vast majority still small — retrofit opportunity</td></tr>
+      <tr><td>Farms &gt;100 hectares</td><td class="r">—</td><td class="r">+14.3%</td><td class="r green">Growing</td><td class="green">Fendt's premium sweet spot is growing</td></tr>
+      <tr><td>Top 3-4% of farms</td><td class="r">—</td><td class="r">52.5% of land</td><td class="r">—</td><td>Concentration favors premium equipment</td></tr>
+      <tr><td>Average farmer age</td><td class="r">—</td><td class="r">57 years</td><td class="r">—</td><td>Succession wave → equipment upgrade cycle</td></tr>
+    </table>
+  </div>
+  <div class="callout"><strong>The sovereignty thesis:</strong> Europe wants European companies running European agriculture. Fendt is German. Valtra is Finnish. AGCO's European manufacturing base is a structural moat that Deere cannot replicate through acquisition (anti-trust) or organic growth (brand perception). As Chinese competitors press into the value segment, the EU will protect its premium ag brands — and AGCO is the primary beneficiary.</div>
+  <div class="source">Source: Eurostat, CEMA, EU Common Agricultural Policy, AGCO 10-K | JAOD Analysis</div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════ -->
-<!-- THESIS 5: CYCLICAL ENTRY (Slides 11-12)           -->
-<!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 11: Cycle Position + Counter-Arguments -->
-<div class="slide" id="s11">
-  <div class="slide-title">Thesis 5: Cyclical Entry -- <span>Honest Counter-Arguments</span></div>
-  <div class="slide-subtitle">We recognize the trough but don't claim an edge on timing. The structural case justifies the position even if recovery takes longer.</div>
-  <div class="compare-grid">
-    <div class="compare-col left">
-      <h4>Evidence for Trough</h4>
-      <ul class="bullets">
-        <li><strong>Dealer inventory at 17-year low.</strong> Destocking ~80% complete across the industry.</li>
-        <li><strong>Combines turning positive.</strong> First segment to recover historically.</li>
-        <li><strong>Fleet age 15+ years.</strong> 2011-2013 boom cohort approaching replacement age.</li>
-        <li><strong>All three OEMs signal 2027 recovery.</strong> Deere, CNH, and AGCO converging on same timing.</li>
-        <li><strong>AGCO CFO: 2026 is "the trough year."</strong> Explicit management guidance.</li>
-      </ul>
-    </div>
-    <div class="compare-col right">
-      <h4>Honest Counter-Arguments</h4>
-      <ul class="bullets">
-        <li><strong>Corn at $4.35</strong> below breakeven ($4.90-5.60 cost of production). Farmers are losing money.</li>
-        <li><strong>Farm bankruptcies +46%.</strong> Real stress in the farm economy, not just cycle softness.</li>
-        <li><strong>Gov payments masking weakness.</strong> Net farm income includes $44B in government payments (+45%). Ex-subsidies, income ~$109B.</li>
-        <li><strong>Tariff risk is real.</strong> ~$105-110M headwind in 2026. 2018 tariff-driven pullback after 2016 rally is a cautionary tale.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout-teal callout">If all we had was a cycle trade, we would not own this. We own AGCO because five structural pillars -- PTx retrofit, trough FCF power, European fortress, capital return, and cyclical entry -- compound regardless of exact cycle timing.</div>
-</div>
-
-<!-- SLIDE 12: Historical Recovery Returns -->
-<div class="slide" id="s12">
-  <div class="slide-title">Historical Recovery Returns: <span>AGCO Rallies Hard Off Troughs</span></div>
-  <div class="slide-subtitle">AGCO recovered +150% (2009), +73% (2016), and +250% (2020). The current setup mirrors the 2015-2016 analog.</div>
-  <div class="row">
-    <div class="col" style="flex:2">
-      <div class="card">
-        <h3>Recovery Returns from Prior Troughs (% gain, 24 months)</h3>
-        <canvas id="c12-recovery" style="max-height:320px"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>Cycle Comparison</h3>
-        <table>
-          <tr><th>Metric</th><th class="r">2013-2016</th><th class="r">2023-2026</th></tr>
-          <tr><td>Revenue decline</td><td class="r red">~30%</td><td class="r red">~30%</td></tr>
-          <tr><td>EBIT margin compression</td><td class="r red">~700bps</td><td class="r red">~900bps</td></tr>
-          <tr><td>Stock drawdown</td><td class="r red">-60%</td><td class="r red">-55%</td></tr>
-          <tr><td>Trough duration</td><td class="r">~2.5 yrs</td><td class="r amber">~2 yrs</td></tr>
-          <tr><td style="border-top:2px solid var(--warm-300)">Recovery return</td><td class="r green" style="border-top:2px solid var(--warm-300)">+73%</td><td class="r amber" style="border-top:2px solid var(--warm-300)">???</td></tr>
-        </table>
-      </div>
-      <div class="callout-red callout" style="margin-top:0">
-        <strong>Warning:</strong> 2018 tariff-driven pullback after the 2016 rally is a cautionary tale. Cyclical recovery is not linear. Position sizing must reflect this.
-      </div>
-    </div>
-  </div>
-  <div class="callout">AGCO has outperformed in 2 of 3 prior recoveries -- the current setup (55% drawdown from ATH, record FCF, inventory at 17-year low) is the most compelling entry since 2016.</div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ -->
-<!-- AGCO SPECIFICS (Slides 13-18)                     -->
-<!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 13: Company Overview -->
-<div class="slide" id="s13">
-  <div class="slide-title">AGCO Corporation: <span>Brands, Segments, Revenue</span></div>
-  <div class="slide-subtitle">~21,000 employees, ~40 plants, ~3,100 dealers. Three premium brands, one precision ag platform, global reach.</div>
-  <div class="metrics">
-    <div class="metric"><div class="label">Employees</div><div class="value">~21K</div><div class="detail">Global workforce</div></div>
-    <div class="metric"><div class="label">Plants</div><div class="value amber">~40</div><div class="detail">Across 4 continents</div></div>
-    <div class="metric"><div class="label">Dealers</div><div class="value teal">~3,100</div><div class="detail">Global network</div></div>
-    <div class="metric"><div class="label">FY2025 Revenue</div><div class="value">$10.08B</div><div class="detail">-30% from peak</div></div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <h3>Revenue by Region ($B, FY2025)</h3>
-        <canvas id="c13-pie" style="max-height:300px"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>Segment Profitability</h3>
-        <table>
-          <tr><th>Region</th><th class="r">Revenue</th><th class="r">EBIT</th><th class="r">Margin</th></tr>
-          <tr><td class="amber">EME (Europe/ME/Africa)</td><td class="r">$6.74B</td><td class="r green">$1,007M</td><td class="r green">14.9%</td></tr>
-          <tr><td class="blue">South America</td><td class="r">$1.12B</td><td class="r">$51.4M</td><td class="r">4.6%</td></tr>
-          <tr><td class="teal">Asia/Pacific/Africa</td><td class="r">$0.55B</td><td class="r">--</td><td class="r">--</td></tr>
-          <tr><td class="red">North America</td><td class="r">$1.67B</td><td class="r red">($112M)</td><td class="r red">-6.7%</td></tr>
-        </table>
-        <div class="callout" style="margin-top:12px">EME generates virtually all EBIT. NA losses are deliberate (inventory burn). SA at 4.6% margin represents significant upside as the cycle turns.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 14: Revenue + FCF History -->
-<div class="slide" id="s14">
-  <div class="slide-title">Revenue + FCF History: <span>The Divergence IS the Thesis</span></div>
-  <div class="slide-subtitle">Revenue fell 30% from peak, but FCF hit a record. This single chart captures the entire investment case.</div>
-  <div class="card">
-    <h3>Revenue ($B, Bars) + Free Cash Flow ($M, Line), 2016-2025</h3>
-    <canvas id="c14-dual" style="max-height:380px"></canvas>
-  </div>
-  <div class="callout">Revenue fell 30% from peak, but FCF hit a record -- this divergence, driven by operational flexibility, capex discipline, and working capital management, is the thesis. The market prices the revenue decline; the investor owns the FCF reality.</div>
-</div>
-
-<!-- SLIDE 15: North America -->
-<div class="slide" id="s15">
-  <div class="slide-title">North America: <span>Temporary Loss, Not Structural Failure</span></div>
-  <div class="slide-subtitle">($112M) loss was deliberate underproduction to burn inventory. AGCO achieved its largest one-year large ag market share gain in company history.</div>
-  <div class="metrics">
-    <div class="metric"><div class="label">NA Revenue</div><div class="value">$1.67B</div><div class="detail">FY2025</div></div>
-    <div class="metric"><div class="label">NA EBIT</div><div class="value red">($112M)</div><div class="detail">-6.7% margin</div></div>
-    <div class="metric"><div class="label">Inventory Cut</div><div class="value green">-30%+</div><div class="detail">Dealer unit reduction</div></div>
-    <div class="metric"><div class="label">Share Gain</div><div class="value amber">Record</div><div class="detail">Largest in history</div></div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <h3>Path to Breakeven</h3>
-        <ul class="bullets">
-          <li><strong>Inventory right-sizing completes mid-2026.</strong> Dealer inventory hit targets in several product categories already.</li>
-          <li><strong>Production matches retail by H2 2026.</strong> End of deliberate underproduction.</li>
-          <li><strong>Fendt expansion: $1.7B target</strong> for Fendt sales in Americas by 2029 (premium mix shift).</li>
-          <li><strong>Project Reimagine savings</strong> flowing to NA operations.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>The Math on Breakeven</h3>
-        <table>
-          <tr><th>Scenario</th><th class="r">EBIT Swing</th><th class="r">EV Impact</th><th class="r">$/Share</th></tr>
-          <tr><td>Breakeven only</td><td class="r green">+$112M</td><td class="r">~$800M</td><td class="r green">~$11</td></tr>
-          <tr><td>5% margin</td><td class="r green">+$196M</td><td class="r">~$1.4B</td><td class="r green">~$19</td></tr>
-          <tr><td>Mid-cycle 8%</td><td class="r green">+$246M</td><td class="r">~$1.7B</td><td class="r green">~$24</td></tr>
-        </table>
-        <div class="source">EV impact at 7x EBIT multiple; per-share on 72.4M shares</div>
-      </div>
-    </div>
-  </div>
-  <div class="callout">If North America just gets to breakeven, that alone is $112M EBIT swing = ~$800M EV creation = ~$11/share -- the losses are a deliberate, temporary investment in channel health that the market is treating as permanent impairment.</div>
-</div>
-
-<!-- SLIDE 16: Project Reimagine -->
-<div class="slide" id="s16">
-  <div class="slide-title">Project Reimagine: <span>$200M Real Savings + Margin Bridge</span></div>
-  <div class="slide-subtitle">~$190M achieved of $200M target. 700 projects, 50 agentic AI, 35% factory efficiency improvement via SymphonyAI.</div>
-  <div class="metrics">
-    <div class="metric"><div class="label">Target</div><div class="value amber">$200M</div><div class="detail">Run-rate by end 2026</div></div>
-    <div class="metric"><div class="label">Achieved</div><div class="value green">~$190M</div><div class="detail">In run-rate already</div></div>
-    <div class="metric"><div class="label">Projects</div><div class="value">700</div><div class="detail">~Half implemented</div></div>
-    <div class="metric"><div class="label">AI Projects</div><div class="value teal">50</div><div class="detail">Of 160 in pipeline</div></div>
-  </div>
-  <div class="card">
-    <h3>Operating Margin Bridge: Current to Mid-Cycle Target</h3>
-    <canvas id="c16-bridge" style="max-height:360px"></canvas>
-  </div>
-  <div class="callout">$200M of annual savings on a ~$10B revenue base = 200 bps of structural margin improvement that does not depend on volume recovery -- combined with cycle recovery, precision ag mix, and NA normalization, mid-cycle margins of 12%+ are achievable.</div>
-</div>
-
-<!-- SLIDE 17: Oil-Corn-Equipment Chain -->
-<div class="slide" id="s17">
-  <div class="slide-title">Oil-Corn-Equipment Chain: <span>The Macro Linkage</span></div>
-  <div class="slide-subtitle">Oil drives corn via ethanol economics, corn drives farm income, farm income drives equipment demand. The correlations are strong and structural.</div>
-  <div class="flow-chain" style="margin:30px 0">
-    <div class="flow-box"><div class="flow-label">WTI Oil</div><div class="flow-value">$57.87</div></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-box"><div class="flow-label">Corn Price</div><div class="flow-value">$4.35</div></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-box"><div class="flow-label">Farm Income</div><div class="flow-value">$180B</div><div style="font-size:10px;color:var(--text-muted)">(2025 est.)</div></div>
-    <div class="flow-arrow">&rarr;</div>
-    <div class="flow-box"><div class="flow-label">Equip Demand</div><div class="flow-value">Trough</div></div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <h3>Oil Price vs Corn Price (2010-2025)</h3>
-        <canvas id="c17-oilcorn"></canvas>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>Farm Income vs Deere & AGCO Revenue (2010-2025)</h3>
-        <canvas id="c17-incomerev"></canvas>
-      </div>
-    </div>
-  </div>
-  <div class="callout">Correlations: Oil-Corn r=0.747, Corn-Income r=0.697, Income-Equipment r=0.854. RED III in EU + RFS in US create a structural biofuel demand floor that supports corn acreage and equipment demand through the cycle. <strong>The median U.S. farm household earns negative income from farming (-$1,498 in 2025) -- more than half of all farm households lose money on operations. 55% of crop farms had a negative operating profit margin in 2024, up from 42% in 2023.</strong> (USDA ERS; FINBIN/Farmdoc Daily)</div>
-</div>
-
-<!-- SLIDE 18: G&P Divestiture + Brazil -->
-<div class="slide" id="s18">
-  <div class="slide-title">G&P Divestiture + <span>Brazil Optionality</span></div>
-  <div class="slide-subtitle">Sold G&P for $700M (net $631M) -- removed sub-7% margin drag. Brazil: only country adding arable land, election Oct 2026.</div>
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <h3>G&P Divestiture: Right Move Despite ~$450M Loss</h3>
-        <ul class="bullets">
-          <li><strong>Removed sub-7% margin business</strong> that diluted ROIC. Every future dollar of buyback now accretes to higher-quality earnings.</li>
-          <li><strong>Generated $631M net cash</strong> used for $500M Term Loan paydown. Strengthened balance sheet at the right time.</li>
-          <li><strong>Simplified the portfolio</strong> to core machinery + precision tech. Strategic focus matters for execution.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <h3>Brazil: The Hidden Optionality</h3>
-        <ul class="bullets">
-          <li><strong>Only country adding arable land.</strong> Brazil is the world's marginal acre -- structurally growing.</li>
-          <li><strong>Mato Grosso: 2-3 plantings annually.</strong> Higher equipment utilization = higher replacement demand.</li>
-          <li><strong>Presidential election Oct 2026.</strong> Historically triggers ag stimulus spending, could meaningfully boost H2 2026 / 2027.</li>
-          <li><strong>SA margin 4.6% = pure upside.</strong> At mid-cycle margins, SA EBIT contribution doubles or triples.</li>
-          <li><strong>Fendt expansion into SA</strong> underway -- premium brand entering a market currently dominated by value brands.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="callout">Taking a $450M loss on G&P looks terrible on the P&L, but it removed a sub-7% margin drag on ROIC and generated $631M for debt paydown -- every future buyback dollar now accretes to a higher-quality earnings stream. Brazil at 4.6% margin is pure optionality: the Oct 2026 election could trigger the same ag stimulus that boosted Brazilian equipment demand in prior cycles.</div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════ -->
-<!-- VALUATION (Slides 19-26)                          -->
-<!-- ═══════════════════════════════════════════════════ -->
-
-<!-- SLIDE 19: Mid-Cycle Earnings Power -->
-<div class="slide" id="s19">
-  <div class="slide-title">Mid-Cycle Earnings Power: <span>$10-13 FCF/Share</span></div>
-  <div class="slide-subtitle">$12-13B revenue at 10-12% margins, PTx at $1.2B+ / 30%, shares ~64M = $10-13 FCF/share at mid-cycle.</div>
-  <div class="card">
-    <h3>P/FCF Sensitivity: Stock Price at Various FCF/Share and Multiples</h3>
-    <table>
-      <tr><th>FCF/Share</th><th class="r">10x</th><th class="r">12x</th><th class="r">14x</th><th class="r">16x</th><th class="r">18x</th></tr>
-      <tr><td class="amber">$8.00</td><td class="r">$80</td><td class="r">$96</td><td class="r">$112</td><td class="r">$128</td><td class="r">$144</td></tr>
-      <tr><td>$9.00</td><td class="r">$90</td><td class="r">$108</td><td class="r">$126</td><td class="r">$144</td><td class="r">$162</td></tr>
-      <tr><td class="green">$10.00</td><td class="r">$100</td><td class="r green">$120</td><td class="r green">$140</td><td class="r">$160</td><td class="r">$180</td></tr>
-      <tr><td>$11.00</td><td class="r">$110</td><td class="r">$132</td><td class="r green">$154</td><td class="r">$176</td><td class="r">$198</td></tr>
-      <tr><td class="amber">$12.50</td><td class="r">$125</td><td class="r amber">$150</td><td class="r amber">$175</td><td class="r">$200</td><td class="r">$225</td></tr>
-    </table>
-    <div class="callout" style="margin-top:12px">At mid-cycle FCF/share of $10-12.50 and a 12-14x multiple (reasonable for a precision ag compounder), the stock is worth $120-175. Today's $105 entry prices in permanent trough conditions.</div>
-  </div>
-  <div class="card">
-    <h3>Mid-Cycle FCF Build-Up</h3>
-    <table>
-      <tr><th>Component</th><th class="r">Assumption</th><th class="r">Contribution</th></tr>
-      <tr><td>Revenue</td><td class="r">$12-13B (vs $14.4B peak, $10.1B trough)</td><td class="r">--</td></tr>
-      <tr><td>Core Ag EBIT margin</td><td class="r">10-12% (vs 5.9% trough, 14.9% EME)</td><td class="r">$1.2-1.6B EBIT</td></tr>
-      <tr><td class="amber">PTx Revenue</td><td class="r amber">$1.2B+ at 30% EBITDA</td><td class="r amber">$360M+ EBITDA</td></tr>
-      <tr><td>Capex</td><td class="r">$350M normalized</td><td class="r">--</td></tr>
-      <tr><td>Shares outstanding</td><td class="r">~64M (post buyback)</td><td class="r">--</td></tr>
-      <tr><td class="green"><strong>FCF/Share</strong></td><td class="r"></td><td class="r green"><strong>$10-13</strong></td></tr>
-    </table>
-  </div>
-</div>
-
-<!-- SLIDE 20: FCF Yield vs Peers -->
-<div class="slide" id="s20">
-  <div class="slide-title">FCF Yield vs <span>Every Industrial Peer</span></div>
-  <div class="slide-subtitle">AGCO at 9.7% FCF yield (2025 actual) is the highest in the ag equipment universe and above most industrials.</div>
-  <div class="card">
-    <h3>FCF Yield Comparison (%)</h3>
-    <canvas id="c20-yield" style="max-height:300px"></canvas>
-  </div>
-  <div class="card">
-    <h3>AGCO FCF Scenario Analysis</h3>
-    <table>
-      <tr><th>Scenario</th><th class="r">FCF ($M)</th><th class="r">FCF Yield</th><th class="r">Context</th></tr>
-      <tr><td class="red">Trough</td><td class="r">$400M</td><td class="r">5.3%</td><td class="r">Normalized floor (2024 was $297M with restructuring)</td></tr>
-      <tr><td class="amber">FY2025 (Actual)</td><td class="r amber">$740M</td><td class="r amber">9.7%</td><td class="r">Record -- working capital release + capex cuts</td></tr>
-      <tr><td class="green">Mid-Cycle</td><td class="r">$650M</td><td class="r green">8.6%</td><td class="r">Normalized at $12B rev, 10% margins</td></tr>
-      <tr><td class="teal">Bull Case</td><td class="r">$850M</td><td class="r teal">11.2%</td><td class="r">$13B rev, 12% margins, lower capex</td></tr>
-    </table>
-  </div>
-  <div class="callout">Even on a normalized trough FCF of ~$400M, AGCO yields 5.3% -- for a business gaining market share globally, buying back 13% of float, and owning 85% of a 30% EBITDA margin precision ag platform.</div>
-  <div class="card">
-    <h3>EV/EBITDA: AGCO vs Industrial Peers</h3>
-    <canvas id="c20-eveb" style="max-height:260px"></canvas>
-  </div>
-  <div class="callout">AGCO trades at 9.2x EV/EBITDA -- roughly half of Deere's 18.5x. The discount reflects European concentration, PTx integration risk, and cyclical trough earnings. The thesis is that PTx's 30%-margin tech and Fendt's premium franchise narrow this gap.</div>
-</div>
-
-<!-- SLIDE 21: Scenario Analysis -->
-<div class="slide" id="s21">
-  <div class="slide-title">Scenario Analysis: <span>Bull $160 / Base $125 / Bear $72</span></div>
-  <div class="slide-subtitle">Probability-weighted expected value: $122 (+16% from $105). Asymmetric upside with structural floor from FCF power.</div>
-  <div class="card">
-    <h3>Three-Scenario Framework</h3>
-    <table>
-      <tr><th>Scenario</th><th class="r">Prob.</th><th class="r">Target</th><th class="r">Return</th><th>Key Assumptions</th></tr>
-      <tr>
-        <td class="green"><strong>Bull</strong></td><td class="r">30%</td><td class="r green">$160</td><td class="r green">+52%</td>
-        <td>Ag cycle recovers 2027, rev $12-13B, 12% margins, PTx $1.5B+, buyback retires 15-20%, FCF/sh $10-12 on ~62M shares</td>
-      </tr>
-      <tr>
-        <td class="amber"><strong>Base</strong></td><td class="r">45%</td><td class="r amber">$125</td><td class="r amber">+19%</td>
-        <td>Rev flat to up through 2027, 9-10% margins, PTx $1B+, buyback retires ~$500M, FCF/sh $7.50-8.50 on ~68M shares</td>
-      </tr>
-      <tr>
-        <td class="red"><strong>Bear</strong></td><td class="r">25%</td><td class="r red">$72</td><td class="r red">-31%</td>
-        <td>Ag downturn extends through 2028, PTx stagnates at $860M, EU erodes, FCF/sh $4-5 on 70M shares</td>
-      </tr>
-      <tr style="border-top:2px solid var(--warm-300)">
-        <td class="amber"><strong>Expected Value</strong></td><td class="r"></td><td class="r amber"><strong>$122</strong></td><td class="r amber"><strong>+16%</strong></td>
-        <td>Probability-weighted: (0.30 x $160) + (0.45 x $125) + (0.25 x $72) = ~$122</td>
-      </tr>
-    </table>
-  </div>
-  <div class="card">
-    <h3>Scenario Returns vs Probability</h3>
-    <canvas id="c21-scenario" style="max-height:280px"></canvas>
-  </div>
-  <div class="callout">The base and bull cases ($125-$160) have a combined 75% probability, making the risk/reward asymmetrically favorable for a patient, long-term holder -- even the expected value of $122 delivers 16% upside before dividends.</div>
-  <div class="callout" style="margin-top:12px"><strong>Asymmetry:</strong> 75% probability of positive returns. Expected value = (30% x $160) + (45% x $127) + (25% x $72) = $123, or +17% upside. Even if bear probability increases to 35% and bull drops to 20%, expected value = $114, still +9% above current price.</div>
-</div>
-
-<!-- SLIDE 22: TSR Bridge -->
-<div class="slide" id="s22">
-  <div class="slide-title">Total Shareholder Return Bridge: <span>15-20% Annualized</span></div>
-  <div class="slide-subtitle">Earnings growth + PTx growth + buyback + dividend = 15-20% annualized TSR over 5 years without any multiple expansion.</div>
-  <div class="card">
-    <h3>5-Year TSR Component Bridge (Annualized %)</h3>
-    <canvas id="c22-tsr" style="max-height:360px"></canvas>
-  </div>
-  <div class="card">
-    <h3>TSR Component Detail</h3>
-    <table>
-      <tr><th>Component</th><th class="r">Annual</th><th class="r">5-Year Cumul.</th><th>Driver</th></tr>
-      <tr><td class="amber">Earnings Growth</td><td class="r amber">10-13%</td><td class="r">61-84%</td><td>Cycle recovery + Reimagine savings</td></tr>
-      <tr><td class="teal">PTx Growth</td><td class="r teal">2-3%</td><td class="r">10-16%</td><td>$860M to $2B target by 2029</td></tr>
-      <tr><td class="green">Buyback</td><td class="r green">3-4%</td><td class="r">16-22%</td><td>$1B+ at trough prices, share count to ~62M</td></tr>
-      <tr><td class="blue">Dividend</td><td class="r blue">1%</td><td class="r">5%</td><td>$1.16/share regular dividend</td></tr>
-      <tr style="border-top:2px solid var(--warm-300)"><td class="amber"><strong>Total TSR</strong></td><td class="r amber"><strong>15-20%</strong></td><td class="r amber"><strong>101-142%</strong></td><td>No multiple expansion assumed</td></tr>
-    </table>
-  </div>
-  <div class="callout">15-20% annualized TSR assumes NO multiple expansion -- if the market re-rates AGCO from ~10x trough FCF to 14x mid-cycle FCF, additional 40%+ upside is available from multiple expansion alone.</div>
-</div>
-
-<!-- SLIDE 23: Dividend Regime Shift -->
-<div class="slide" id="s23">
-  <div class="slide-title">Dividend Regime Shift: <span>From Variable Dividends to Buybacks</span></div>
-  <div class="slide-subtitle">Variable dividends are tax-inefficient and don't compound. Buybacks at trough prices permanently reduce the share count.</div>
-  <div class="card">
-    <h3>Dividend History: Regular + Special ($/Share)</h3>
-    <canvas id="c23-div" style="max-height:300px"></canvas>
-  </div>
-  <div class="card">
-    <h3>Why Buybacks Beat Variable Dividends</h3>
-    <table>
-      <tr><th>Factor</th><th>Variable Dividend</th><th class="green">Buyback at Trough</th></tr>
-      <tr><td>Tax efficiency</td><td>Ordinary income tax rate</td><td class="green">Capital gains (deferred)</td></tr>
-      <tr><td>Compounding</td><td>Cash leaves the system</td><td class="green">Permanently reduces denominator</td></tr>
-      <tr><td>Cyclical timing</td><td>Returns cash at any price</td><td class="green">Buys shares at depressed prices</td></tr>
-      <tr><td>FCF/share impact</td><td>None (same share count)</td><td class="green">Increases future FCF/share permanently</td></tr>
-      <tr><td>Flexibility</td><td>Sets expectations for future payouts</td><td class="green">Can pause without dividend-cut stigma</td></tr>
-    </table>
-  </div>
-  <div class="callout">AGCO paid $5/share in special dividends in 2023 when the stock was $180. In 2025, at $105, they are instead buying back 13% of float -- this shift in capital allocation philosophy is one of the most important structural changes in the AGCO story.</div>
-</div>
-
-<!-- SLIDE 24: Risk Matrix -->
-<div class="slide" id="s24">
-  <div class="slide-title"><span>Risk Matrix</span> + Kill Switches</div>
-  <div class="slide-subtitle">Six risks ranked by probability and impact. Three kill switches that would cause us to exit the position.</div>
-  <div class="risk-matrix">
-    <div class="risk-cell high">
-      <h4 style="color:var(--red-500)">European CAP Cuts</h4>
-      <p>67% revenue concentration in EME. 2027 CAP review could reduce farm subsidies. Fallow removal and RED III provide floor, but political risk is real.</p>
-    </div>
-    <div class="risk-cell high">
-      <h4 style="color:var(--red-500)">PTx Integration Stumbles</h4>
-      <p>$354M impairment less than 12 months after close. PTx GM departed. If revenue plateaus at $860M instead of reaching $2B target, the ~$2B price tag was too high.</p>
-    </div>
-    <div class="risk-cell med">
-      <h4 style="color:var(--sapphire-500)">Deere Data Flywheel</h4>
-      <p>330M+ engaged acres generating data. If Deere's closed ecosystem wins because farmers value performance over openness, PTx's addressable market shrinks.</p>
-    </div>
-    <div class="risk-cell med">
-      <h4 style="color:var(--sapphire-500)">Tariffs</h4>
-      <p>~$105-110M headwind in 2026 (~1% of sales). Management says pricing covers cost but is "margin dilutive." 2018 tariff-driven pullback is the cautionary tale.</p>
-    </div>
-    <div class="risk-cell med">
-      <h4 style="color:var(--sapphire-500)">Management Credibility</h4>
-      <p>PTx impairment less than 12 months after deal. G&P sale at ~$450M loss. CEO = Chair (no separation). Track record of deal-making is mixed despite improving operations.</p>
-    </div>
-    <div class="risk-cell low">
-      <h4 style="color:var(--teal-500)">Ag Downturn Extends</h4>
-      <p>If cycle doesn't recover by 2028, NA losses deepen, Brazil stays weak, buyback consumes cash. Net debt $1.76B is manageable at 2.6x EBITDA but not trivial.</p>
-    </div>
-  </div>
-  <div class="callout-red callout" style="margin-top:16px">
-    <strong>Kill Switches (exit if any trigger):</strong> (1) PTx revenue stalls for 2+ consecutive years below $900M, (2) EME operating margins fall below 12% for 2 consecutive quarters, (3) FCF drops below $300M for 2 consecutive fiscal years.
-  </div>
-</div>
-
-<!-- SLIDE 25: What I'm Watching -->
-<div class="slide" id="s25">
-  <div class="slide-title">What I'm <span>Watching</span></div>
-  <div class="slide-subtitle">Six metrics that will determine whether the thesis is playing out or breaking down.</div>
-  <div class="card">
-    <table>
-      <tr><th style="width:22%">Metric</th><th style="width:22%">Current</th><th style="width:26%">Target / Trigger</th><th style="width:30%">Why It Matters</th></tr>
-      <tr>
-        <td class="amber"><strong>PTx Revenue Growth</strong></td>
-        <td>$860M (flat guidance)</td>
-        <td class="green">&gt;$220M/quarter ($880M+ annualized)</td>
-        <td>Signals growth engine restarting. Path to $2B by 2029.</td>
-      </tr>
-      <tr>
-        <td class="amber"><strong>Buyback Pace</strong></td>
-        <td>$250M in Q4 2025</td>
-        <td class="green">$200-250M/quarter sustained</td>
-        <td>If they maintain pace, ~13% of float retires in 12-18 months.</td>
-      </tr>
-      <tr>
-        <td class="amber"><strong>NA Margin Trajectory</strong></td>
-        <td>-6.7% (FY2025)</td>
-        <td class="green">Breakeven by H2 2026</td>
-        <td>Breakeven = $112M EBIT swing = ~$11/share EV creation.</td>
-      </tr>
-      <tr>
-        <td class="amber"><strong>EME Margin Stability</strong></td>
-        <td>14.9% (FY2025)</td>
-        <td class="red">Watch for &lt;12%</td>
-        <td>Europe IS the company. Margin erosion here = thesis at risk.</td>
-      </tr>
-      <tr>
-        <td class="amber"><strong>Brazil Election</strong></td>
-        <td>Oct 2026</td>
-        <td class="teal">Ag stimulus spending</td>
-        <td>Historically triggers equipment demand boost in following year.</td>
-      </tr>
-      <tr>
-        <td class="amber"><strong>Tariff Resolution</strong></td>
-        <td>$105-110M headwind</td>
-        <td class="teal">Any de-escalation</td>
-        <td>Resolution reduces headwind; escalation compresses margins further.</td>
-      </tr>
-    </table>
-  </div>
-  <div class="callout">Q1 2026 results (expected early May) are the next critical data point -- watch NA dealer inventory levels (5-month target), PTx quarterly revenue, and buyback execution on the 10-Q share count.</div>
-</div>
-
-<!-- SLIDE 26: Investment Conclusion -->
-<div class="slide" id="s26">
-  <div class="slide-title" style="text-align:center;font-size:38px;margin-top:40px">AGCO: <span>Precision Retrofit Compounder at Trough FCF</span></div>
-  <div style="text-align:center;margin-bottom:40px">
-    <div style="font-family:var(--font-mono);color:var(--sapphire-500);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Investment Conclusion</div>
-  </div>
-
-  <div class="metrics" style="max-width:1000px;margin:0 auto 30px">
-    <div class="metric"><div class="label">Entry Price</div><div class="value amber">$105</div></div>
-    <div class="metric"><div class="label">2025 FCF</div><div class="value teal">$740M</div><div class="detail">Record at trough</div></div>
-    <div class="metric"><div class="label">Target Range</div><div class="value green">$130-150</div><div class="detail">+25-45% upside</div></div>
-    <div class="metric"><div class="label">Annual TSR</div><div class="value amber">15-20%</div><div class="detail">5-year horizon</div></div>
-  </div>
-
-  <div class="card" style="max-width:1000px;margin:0 auto 20px">
-    <h3>Five Pillars of the Thesis</h3>
-    <table>
-      <tr><th style="width:5%">#</th><th style="width:25%">Pillar</th><th>Evidence</th></tr>
-      <tr><td class="amber">1</td><td class="amber"><strong>Precision Ag Retrofit</strong></td><td>PTx $860M rev / 30% EBITDA, 100+ OEMs, 65% of global fleet is NOT Deere, retrofit know-how is the durable moat</td></tr>
-      <tr><td class="teal">2</td><td class="teal"><strong>Trough FCF Power</strong></td><td>Record $740M FCF on 30% lower revenue, 188% conversion, 9.7% yield -- proves the cash flow machine works in any cycle</td></tr>
-      <tr><td class="green">3</td><td class="green"><strong>European Fortress</strong></td><td>Fendt = premium leader, EME 14.9% EBIT margin, $6.74B revenue (67%), farm consolidation favors premium</td></tr>
-      <tr><td class="blue">4</td><td class="blue"><strong>Capital Return</strong></td><td>$1B buyback = 13% of float at trough, regime shift from variable dividends, TAFE settlement cleared</td></tr>
-      <tr><td style="color:var(--copper-500)">5</td><td style="color:var(--copper-500)"><strong>Cyclical Entry</strong></td><td>Inventory at 17-year low, fleet age 15+, all OEMs signal 2027. Prior troughs: +150%, +73%, +250% recoveries</td></tr>
-    </table>
-  </div>
-
-  <div class="callout-red callout" style="max-width:1000px;margin:0 auto 20px">
-    <strong>Kill Switches:</strong> PTx stalls 2+ years | EME margins &lt; 12% for 2 quarters | FCF &lt; $300M for 2 consecutive years
-  </div>
-
-  <div style="text-align:center;max-width:1000px;margin:30px auto 0">
-    <div style="font-family:var(--font-display);font-size:20px;color:var(--text-primary);line-height:1.7;max-width:800px;margin:0 auto">
-      You are buying $740M of trough FCF power for $7.6B, and the company is about to shrink its share count by 10-15% at these prices. If the ag cycle turns -- and cycles always turn -- normalized FCF per share on a smaller share base could be $10-12, supporting a stock price well north of $150.
-    </div>
-    <div style="margin-top:24px;font-family:var(--font-mono);color:var(--text-muted);font-size:11px">
-      This is not a growth stock. This is a durable FCF machine temporarily priced like a broken business.
-    </div>
-  </div>
-
-  <div class="source" style="text-align:center;margin-top:30px">Sources: AGCO FY2025 10-K, Q4 2025 Earnings Call, AGCO Analyst Day 2024, TAFE Settlement (July 2025), Federal Circuit Patent Ruling (Jan 2025), AGCO CFO at Raymond James Conference (Mar 2026) | JAOD Analysis, April 2026</div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════════ -->
-<!-- JAVASCRIPT: Navigation + Charts                    -->
+<!-- JAVASCRIPT                                         -->
 <!-- ═══════════════════════════════════════════════════ -->
 <script>
-// -- NAVIGATION --
 const slides = document.querySelectorAll('.slide');
 const navBtns = document.querySelectorAll('.nav-btn');
 const counter = document.getElementById('slide-counter');
@@ -1226,660 +548,299 @@ document.addEventListener('keydown', e => {
 // -- CHART DEFAULTS --
 Chart.defaults.color = '#1C2B3A';
 Chart.defaults.borderColor = '#E0DED8';
-Chart.defaults.font.family = "'DM Sans', sans-serif";
+Chart.defaults.font.family = "'DM Sans','Avenir Next',-apple-system,sans-serif";
+Chart.defaults.font.size = 11;
 Chart.defaults.plugins.legend.labels.usePointStyle = true;
 Chart.defaults.plugins.legend.labels.pointStyle = 'circle';
+Chart.defaults.plugins.legend.labels.color = '#5A6778';
 Chart.defaults.elements.line.tension = 0;
 Chart.defaults.elements.point.radius = 4;
 Chart.defaults.elements.point.hoverRadius = 6;
 
-const AMBER = '#0075B5';
+const PRIMARY = '#0075B5';
 const TEAL = '#00897B';
 const BLUE = '#3B98CC';
 const RED = '#C41E3A';
 const GREEN = '#2E8B4E';
 const COPPER = '#BA7D48';
 const GRAY = '#8B95A2';
-const LIGHT = '#1C2B3A';
+const NAVY = '#153A5A';
+const GRID = 'rgba(28,43,58,0.06)';
 
-// -- CHART INITIALIZATION TRACKER --
-const chartsInitialized = {};
-
+const chartsInit = {};
 function initChartsForSlide(n) {
-  if (chartsInitialized[n]) return;
-  chartsInitialized[n] = true;
-
+  if (chartsInit[n]) return;
+  chartsInit[n] = true;
   switch(n) {
-    case 0: initSlide1(); break;
-    case 1: initSlide2(); break;
-    case 2: initSlide3(); break;
-    case 3: initSlide4(); break;
-    case 4: initSlide5(); break;
-    case 5: initSlide6(); break;
-    case 6: initSlide7(); break;
-    case 7: initSlide8(); break;
-    case 8: initSlide9(); break;
-    case 9: initSlide10(); break;
-    case 11: initSlide12(); break;
-    case 12: initSlide13(); break;
-    case 13: initSlide14(); break;
-    case 15: initSlide16(); break;
-    case 16: initSlide17(); break;
-    case 19: initSlide20(); break;
-    case 20: initSlide21(); break;
-    case 21: initSlide22(); break;
-    case 22: initSlide23(); break;
+    case 0: initS1(); break;
+    case 1: initS2(); break;
+    case 2: initS3(); break;
+    case 3: initS4(); break;
+    case 4: initS5(); break;
+    case 5: initS6(); break;
+    case 6: initS7(); break;
   }
 }
 
-// Initialize first slide
-initChartsForSlide(0);
-
-// -- SLIDE 1: Hero FCF/Share Chart --
-function initSlide1() {
-  const labels = ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026E','2027E','2028E','2029E','2030E'];
-  const data = [3.74, 4.15, 2.43, 3.57, 5.30, 5.22, 6.03, 7.81, 3.98, 9.94, 6.50, 8.50, 10.50, 12.50, 15.00];
-  new Chart(document.getElementById('c1-fcf'), {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'FCF/Share ($)',
-        data: data,
-        backgroundColor: data.map((v, i) => {
-          if (i >= 10) return '#0075B580';
-          if (i === 9) return AMBER;
-          return TEAL;
-        }),
-        borderColor: data.map((v, i) => {
-          if (i >= 10) return AMBER;
-          if (i === 9) return AMBER;
-          return TEAL;
-        }),
-        borderWidth: 1, borderRadius: 4
-      }]
-    },
-    options: {
-      plugins: { legend: { display: false } },
-      scales: {
-        y: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'FCF/Share ($)' } },
-        x: { grid: { display: false } }
-      }
-    }
-  });
-}
-
-// -- SLIDE 2: Market Share + Revenue + Waterfall + Margins --
-function initSlide2() {
-  new Chart(document.getElementById('c2-share'), {
-    type: 'bar',
-    data: {
-      labels: ['John Deere', 'CNH (Case IH + NH)', 'AGCO (Fendt/MF)', 'Others'],
-      datasets: [{
-        label: 'NA Large Ag Market Share (%)',
-        data: [53, 32, 10, 5],
-        backgroundColor: [GREEN, BLUE, AMBER, GRAY],
-        borderWidth: 0, borderRadius: 4
-      }]
-    },
-    options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { max: 60, grid: { color: 'rgba(28,43,58,0.06)' } }, y: { grid: { display: false } } } }
-  });
-
-  new Chart(document.getElementById('c2-rev'), {
-    type: 'bar',
-    data: {
-      labels: ['Deere', 'CNH', 'AGCO'],
-      datasets: [{
-        label: 'Ag Revenue ($B)',
-        data: [27.5, 12.4, 10.1],
-        backgroundColor: [GREEN, BLUE, AMBER],
-        borderWidth: 0, borderRadius: 4
-      }]
-    },
-    options: { plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(28,43,58,0.06)' } }, x: { grid: { display: false } } } }
-  });
-
-  new Chart(document.getElementById('c2-waterfall'), {
-    type: 'bar',
-    data: {
-      labels: ['Equipment Sale', 'Parts (20yr)', 'Service/Labor', 'Financing', 'Tech/Subs', 'Total Lifetime'],
-      datasets: [
-        { label: 'Hidden Base', data: [0, 450, 675, 825, 925, 0], backgroundColor: 'transparent', borderWidth: 0 },
-        { label: 'Value', data: [450, 225, 150, 100, 75, 1000], backgroundColor: [AMBER, GREEN, TEAL, BLUE, COPPER, AMBER], borderWidth: 0, borderRadius: 4 }
-      ]
-    },
-    options: {
-      plugins: { legend: { display: false }, tooltip: {
-        callbacks: { label: ctx => ctx.dataset.label === 'Hidden Base' ? '' : '$' + ctx.raw + 'K' }
-      }},
-      scales: {
-        x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: '$K' } }
-      }
-    }
-  });
-
-  new Chart(document.getElementById('c2-margins'), {
-    type: 'bar',
-    data: {
-      labels: ['Whole Goods', 'Precision Ag', 'Parts', 'Service'],
-      datasets: [{
-        label: 'Gross Margin (%)',
-        data: [20, 47, 42, 35],
-        backgroundColor: [GRAY, AMBER, GREEN, TEAL],
-        borderWidth: 0, borderRadius: 4
-      }]
-    },
-    options: { plugins: { legend: { display: false } }, scales: { y: { max: 55, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Gross Margin %' } }, x: { grid: { display: false } } } }
-  });
-}
-
-// -- SLIDE 3: PTx Revenue Trajectory + Margin Comparison --
-function initSlide3() {
-  const labels = ['2024 (partial)', '2025', '2026E', '2027E', '2028E', '2029E'];
-  const data = [640, 860, 950, 1100, 1400, 2000];
-  new Chart(document.getElementById('c3-ptx'), {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'PTx Revenue ($M)',
-        data: data,
-        backgroundColor: data.map((v, i) => i <= 1 ? AMBER : '#0075B580'),
-        borderColor: data.map(() => AMBER),
-        borderWidth: 1, borderRadius: 4
-      }]
-    },
-    options: {
-      plugins: { legend: { display: false } },
-      scales: {
-        y: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Revenue ($M)' }, beginAtZero: true },
-        x: { grid: { display: false } }
-      }
-    }
-  });
-
-  new Chart(document.getElementById('c3-margins'), {
-    type: 'bar',
-    data: {
-      labels: ['Core Ag Equipment', 'PTx Trimble'],
-      datasets: [{
-        label: 'EBITDA Margin (%)',
-        data: [9, 30],
-        backgroundColor: [GRAY, AMBER],
-        borderWidth: 0, borderRadius: 4
-      }]
-    },
-    options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { max: 35, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'EBITDA Margin %' } }, y: { grid: { display: false } } } }
-  });
-}
-
-// -- SLIDE 4: Fleet Composition Doughnut + Precision Ag Adoption --
-function initSlide4() {
-  new Chart(document.getElementById('c4-fleet'), {
+// ── SLIDE 1 ──
+function initS1() {
+  new Chart(document.getElementById('c1-region'), {
     type: 'doughnut',
     data: {
-      labels: ['Deere (~35%)', 'CNH (~25%)', 'AGCO (~15%)', 'Others (~25%)'],
+      labels: ['EME $6.74B (67%)', 'NA $1.67B (17%)', 'SA $1.12B (11%)', 'APA $0.55B (5%)'],
+      datasets: [{ data: [6.74, 1.67, 1.12, 0.55], backgroundColor: [PRIMARY, TEAL, COPPER, GRAY], borderWidth: 0 }]
+    },
+    options: { plugins: { legend: { position: 'bottom' } } }
+  });
+  new Chart(document.getElementById('c1-ebit'), {
+    type: 'bar',
+    data: {
+      labels: ['EME', 'South America', 'Asia-Pacific', 'North America'],
       datasets: [{
-        data: [35, 25, 15, 25],
-        backgroundColor: [GREEN, BLUE, AMBER, GRAY],
-        borderColor: '#F6F5F2',
-        borderWidth: 3
+        label: '2-Yr Avg EBIT Margin (%)',
+        data: [15.6, 6.1, 1.5, -4.5],
+        backgroundColor: [PRIMARY, TEAL, GRAY, RED],
+        borderRadius: 4
       }]
     },
     options: {
-      cutout: '55%',
-      plugins: {
-        legend: { position: 'bottom', labels: { padding: 16, font: { size: 12 } } },
-        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + '% of global fleet' } }
-      }
-    }
-  });
-
-  new Chart(document.getElementById('c4-adoption'), {
-    type: 'bar',
-    data: {
-      labels: ['Large Farms (>1000ha)', 'US National Avg', 'EU Average', 'Computer Vision/AI', 'Autonomy'],
-      datasets: [{
-        label: 'Precision Ag Adoption (%)',
-        data: [70, 27, 25, 5, 1],
-        backgroundColor: [AMBER, BLUE, TEAL, GRAY, GRAY],
-        borderWidth: 0, borderRadius: 4
-      }]
-    },
-    options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { max: 80, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: '% of Farms' } }, y: { grid: { display: false } } } }
-  });
-}
-
-// -- SLIDE 5: SOTP Waterfall --
-function initSlide5() {
-  new Chart(document.getElementById('c5-sotp'), {
-    type: 'bar',
-    data: {
-      labels: ['PTx Trimble\n(85% stake)', 'Core Ag\nEquipment', 'Less:\nNet Debt', 'Equity\n(Low)', 'Equity\n(High)'],
-      datasets: [
-        { label: 'Base', data: [0, 45, 120, 0, 0], backgroundColor: 'transparent', borderWidth: 0 },
-        { label: 'Value', data: [45, 75, -24, 82, 125],
-          backgroundColor: [AMBER, TEAL, RED, GREEN+'80', GREEN],
-          borderWidth: 0, borderRadius: 4 }
-      ]
-    },
-    options: {
-      plugins: { legend: { display: false }, tooltip: {
-        callbacks: { label: ctx => ctx.dataset.label === 'Base' ? '' : '$' + ctx.raw + '/share' }
-      }},
+      plugins: { legend: { display: false } },
       scales: {
-        x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: '$/Share' }, min: -30, max: 140 }
-      }
-    }
-  });
-}
-
-// -- SLIDE 6: 10-Year FCF vs Revenue --
-function initSlide6() {
-  new Chart(document.getElementById('c6-fcfhist'), {
-    type: 'bar',
-    data: {
-      labels: ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'],
-      datasets: [
-        { label: 'FCF ($M)', data: [300, 330, 190, 270, 397, 390, 450, 585, 297, 740],
-          backgroundColor: [GRAY,GRAY,RED,GRAY,TEAL,TEAL,TEAL,GREEN,RED,AMBER],
-          borderWidth: 0, borderRadius: 4 },
-        { label: 'Revenue ($B)', data: [7.41, 8.31, 9.35, 9.04, 9.14, 11.14, 12.65, 14.41, 11.66, 10.08],
-          type: 'line', borderColor: BLUE, backgroundColor: BLUE, yAxisID: 'y1', pointRadius: 4 }
-      ]
-    },
-    options: {
-      scales: {
-        y: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'FCF ($M)' } },
-        y1: { position: 'right', grid: { display: false }, title: { display: true, text: 'Revenue ($B)', color: BLUE } },
+        y: { grid: { color: GRID }, title: { display: true, text: 'Operating Margin (%)' } },
         x: { grid: { display: false } }
       }
     }
   });
 }
 
-// -- SLIDE 7: FCF vs Adj NI --
-function initSlide7() {
-  new Chart(document.getElementById('c7-conversion'), {
+// ── SLIDE 2 ──
+function initS2() {
+  const years = ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'];
+  const rev = [7.41, 8.31, 9.35, 9.04, 9.14, 11.14, 12.65, 14.41, 11.66, 10.08];
+  const fcf = [300, 330, 190, 270, 397, 390, 450, 585, 297, 740];
+  new Chart(document.getElementById('c2-revfcf'), {
     type: 'bar',
     data: {
-      labels: ['2021','2022','2023','2024','2025'],
+      labels: years,
       datasets: [
-        {
-          label: 'Adj Net Income ($M)',
-          data: [780, 850, 1100, 350, 393],
-          backgroundColor: GRAY,
-          borderWidth: 0, borderRadius: 4
-        },
-        {
-          label: 'Free Cash Flow ($M)',
-          data: [390, 450, 585, 297, 740],
-          backgroundColor: AMBER,
-          borderWidth: 0, borderRadius: 4
-        }
+        { label: 'Revenue ($B)', data: rev, backgroundColor: PRIMARY+'90', borderRadius: 4, yAxisID: 'y', order: 2 },
+        { label: 'FCF ($M)', data: fcf, type: 'line', borderColor: GREEN, backgroundColor: GREEN+'20',
+          fill: true, yAxisID: 'y1', pointRadius: 5, pointBackgroundColor: GREEN, borderWidth: 2.5, order: 1 }
       ]
     },
     options: {
-      plugins: { legend: { position: 'top' } },
+      plugins: { legend: { position: 'bottom' } },
       scales: {
-        y: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: '$M' }, beginAtZero: true },
+        y: { grid: { color: GRID }, title: { display: true, text: 'Revenue ($B)' }, position: 'left' },
+        y1: { grid: { display: false }, title: { display: true, text: 'FCF ($M)' }, position: 'right' },
         x: { grid: { display: false } }
       }
     }
   });
-}
 
-// -- SLIDE 8: Revenue by Region Stacked --
-function initSlide8() {
-  new Chart(document.getElementById('c8-region'), {
+  const stackYears = ['2020','2021','2022','2023','2024','2025'];
+  new Chart(document.getElementById('c2-stack'), {
     type: 'bar',
     data: {
-      labels: ['2020','2021','2022','2023','2024','2025'],
+      labels: stackYears,
       datasets: [
-        { label: 'EME', data: [5.3, 6.5, 7.8, 9.2, 7.8, 6.74], backgroundColor: AMBER, borderRadius: 4, borderWidth: 0 },
-        { label: 'NA', data: [1.8, 2.2, 2.6, 2.8, 2.0, 1.67], backgroundColor: BLUE, borderRadius: 4, borderWidth: 0 },
-        { label: 'SA', data: [1.2, 1.5, 1.3, 1.5, 1.2, 1.12], backgroundColor: GREEN, borderRadius: 4, borderWidth: 0 },
-        { label: 'APA', data: [0.8, 0.9, 0.95, 0.9, 0.66, 0.55], backgroundColor: GRAY, borderRadius: 4, borderWidth: 0 }
+        { label: 'EME', data: [5.3, 6.5, 7.8, 9.2, 7.8, 6.74], backgroundColor: PRIMARY, borderRadius: 2 },
+        { label: 'NA', data: [1.8, 2.2, 2.6, 2.8, 2.0, 1.67], backgroundColor: TEAL, borderRadius: 2 },
+        { label: 'SA', data: [1.2, 1.5, 1.3, 1.5, 1.2, 1.12], backgroundColor: COPPER, borderRadius: 2 },
+        { label: 'APA', data: [0.8, 0.9, 0.95, 0.9, 0.66, 0.55], backgroundColor: GRAY, borderRadius: 2 }
       ]
     },
     options: {
-      plugins: { legend: { position: 'top' } },
+      plugins: { legend: { position: 'bottom' } },
       scales: {
         x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Revenue ($B)' } }
+        y: { stacked: true, grid: { color: GRID }, title: { display: true, text: '$B' } }
       }
     }
   });
 }
 
-// -- SLIDE 9: EU Tractor Registrations --
-function initSlide9() {
-  new Chart(document.getElementById('c9-eureg'), {
+// ── SLIDE 3 ──
+function initS3() {
+  const macroYears = ['2010','2012','2014','2016','2018','2020','2022','2024'];
+  new Chart(document.getElementById('c3-macro'), {
+    type: 'bar',
+    data: {
+      labels: macroYears,
+      datasets: [
+        { label: 'Net Farm Income ($B)', data: [80, 114, 92, 67, 83, 121, 186, 155], backgroundColor: GREEN+'80', borderRadius: 4, yAxisID: 'y', order: 3 },
+        { label: 'Deere Revenue ($B)', data: [26.0, 36.2, 36.1, 26.6, 37.4, 35.5, 52.6, 40.0], type: 'line',
+          borderColor: PRIMARY, pointRadius: 5, pointBackgroundColor: PRIMARY, borderWidth: 2.5, yAxisID: 'y1', order: 1 },
+        { label: 'AGCO Revenue ($B)', data: [6.9, 10.0, 9.7, 7.4, 9.4, 9.2, 12.7, 11.7], type: 'line',
+          borderColor: TEAL, pointRadius: 5, pointBackgroundColor: TEAL, borderWidth: 2.5, borderDash: [5, 3], yAxisID: 'y2', order: 2 }
+      ]
+    },
+    options: {
+      plugins: { legend: { position: 'bottom' } },
+      scales: {
+        y: { grid: { color: GRID }, title: { display: true, text: 'Farm Income ($B)' } },
+        y1: { grid: { display: false }, title: { display: true, text: 'Deere Rev ($B)' }, position: 'right' },
+        y2: { grid: { display: false }, title: { display: true, text: 'AGCO Rev ($B)' }, position: 'right', min: 0, max: 16 },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('c3-eureg'), {
     type: 'bar',
     data: {
       labels: ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'],
       datasets: [{
         label: 'EU Tractor Registrations (000s)',
         data: [157, 155, 162, 170, 164, 159, 181, 175, 162, 144],
-        backgroundColor: [TEAL, TEAL, TEAL, TEAL, TEAL, TEAL, TEAL, TEAL, TEAL, RED],
-        borderWidth: 0, borderRadius: 4
+        backgroundColor: [GRAY, GRAY, GRAY, GRAY, GRAY, GRAY, PRIMARY, PRIMARY, COPPER, RED],
+        borderRadius: 4
       }]
     },
     options: {
       plugins: { legend: { display: false } },
       scales: {
-        y: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Units (000s)' }, min: 120 },
+        y: { grid: { color: GRID }, title: { display: true, text: '000s units' } },
         x: { grid: { display: false } }
       }
     }
   });
 }
 
-// -- SLIDE 10: Share Count --
-function initSlide10() {
-  const labels = ['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026E','2027E','2028E'];
-  const data = [85.5, 80.3, 79.6, 78.3, 75.5, 74.9, 74.8, 74.6, 74.9, 74.7, 72.4, 67.0, 64.0, 62.0];
-  new Chart(document.getElementById('c10-shares'), {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Shares Outstanding (M)',
-        data: data,
-        borderColor: AMBER,
-        backgroundColor: AMBER,
-        pointRadius: data.map((v, i) => i >= 11 ? 6 : 4),
-        pointBackgroundColor: data.map((v, i) => i >= 11 ? '#0075B580' : AMBER),
-        segment: {
-          borderDash: ctx => ctx.p0DataIndex >= 10 ? [6, 3] : undefined
-        },
-        fill: false
-      }]
-    },
-    options: {
-      plugins: { legend: { display: false } },
-      scales: {
-        y: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Shares (M)' }, min: 55, max: 90 },
-        x: { grid: { color: 'rgba(28,43,58,0.06)' } }
-      }
-    }
-  });
-}
-
-// -- SLIDE 12: Recovery Returns --
-function initSlide12() {
-  new Chart(document.getElementById('c12-recovery'), {
+// ── SLIDE 4 ──
+function initS4() {
+  // Lifetime waterfall
+  new Chart(document.getElementById('c4-waterfall'), {
     type: 'bar',
     data: {
-      labels: ['2009 Recovery', '2016 Recovery', '2020 Recovery'],
+      labels: ['Equipment\n($350-500K)', 'Parts\n($225K)', 'Service\n($150K)', 'Financing\n($100K)', 'Precision Ag\n($75K+)', 'Total\nLifetime'],
       datasets: [
-        { label: 'AGCO', data: [150, 73, 250], backgroundColor: AMBER, borderWidth: 0, borderRadius: 4 },
-        { label: 'CNH', data: [120, 172, 200], backgroundColor: BLUE, borderWidth: 0, borderRadius: 4 },
-        { label: 'Deere', data: [100, 158, 180], backgroundColor: GREEN, borderWidth: 0, borderRadius: 4 }
+        { label: 'Base', data: [0, 450, 675, 825, 925, 0], backgroundColor: 'transparent', borderWidth: 0 },
+        { label: 'Value', data: [450, 225, 150, 100, 75, 1000],
+          backgroundColor: [PRIMARY, TEAL, COPPER, GRAY, GREEN, NAVY],
+          borderRadius: 4 }
       ]
     },
     options: {
-      plugins: { legend: { position: 'top' } },
-      scales: {
-        y: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Return (%)' }, beginAtZero: true },
-        x: { grid: { display: false } }
-      }
-    }
-  });
-}
-
-// -- SLIDE 13: Revenue Pie --
-function initSlide13() {
-  new Chart(document.getElementById('c13-pie'), {
-    type: 'doughnut',
-    data: {
-      labels: ['EME $6.74B (67%)', 'NA $1.67B (17%)', 'SA $1.12B (11%)', 'APA $0.55B (5%)'],
-      datasets: [{
-        data: [6.74, 1.67, 1.12, 0.55],
-        backgroundColor: [AMBER, BLUE, GREEN, GRAY],
-        borderColor: '#F6F5F2',
-        borderWidth: 3
-      }]
-    },
-    options: {
-      cutout: '50%',
-      plugins: {
-        legend: { position: 'bottom', labels: { padding: 16, font: { size: 12 } } }
-      }
-    }
-  });
-}
-
-// -- SLIDE 14: Revenue + FCF Dual Axis --
-function initSlide14() {
-  new Chart(document.getElementById('c14-dual'), {
-    type: 'bar',
-    data: {
-      labels: ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'],
-      datasets: [
-        {
-          label: 'Revenue ($B)',
-          data: [7.41, 8.31, 9.35, 9.04, 9.14, 11.14, 12.65, 14.41, 11.66, 10.08],
-          backgroundColor: TEAL+'80',
-          borderColor: TEAL,
-          borderWidth: 1,
-          borderRadius: 4,
-          yAxisID: 'y'
-        },
-        {
-          label: 'Free Cash Flow ($M)',
-          type: 'line',
-          data: [300, 330, 190, 270, 397, 390, 450, 585, 297, 740],
-          borderColor: AMBER,
-          backgroundColor: AMBER,
-          pointRadius: 4,
-          yAxisID: 'y1',
-          fill: false
-        }
-      ]
-    },
-    options: {
-      plugins: { legend: { position: 'top' } },
-      scales: {
-        y: { position: 'left', grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Revenue ($B)' }, beginAtZero: true },
-        y1: { position: 'right', grid: { display: false }, title: { display: true, text: 'FCF ($M)' }, beginAtZero: true },
-        x: { grid: { display: false } }
-      }
-    }
-  });
-}
-
-// -- SLIDE 16: Margin Bridge --
-function initSlide16() {
-  new Chart(document.getElementById('c16-bridge'), {
-    type: 'bar',
-    data: {
-      labels: ['Current\nMargin', '+Cycle\nRecovery', '+Reimagine\nSavings', '+Precision Ag\nMix', '+NA\nNormalization', 'Mid-Cycle\nTarget'],
-      datasets: [
-        { label: 'Base', data: [0, 5.9, 8.4, 10.4, 11.5, 0], backgroundColor: 'transparent', borderWidth: 0 },
-        { label: 'Margin Impact',
-          data: [5.9, 2.5, 2.0, 1.1, 0.8, 12.3],
-          backgroundColor: [GRAY, TEAL, AMBER, GREEN, BLUE, AMBER],
-          borderWidth: 0, borderRadius: 4 }
-      ]
-    },
-    options: {
-      plugins: { legend: { display: false }, tooltip: {
-        callbacks: { label: ctx => ctx.dataset.label === 'Base' ? '' : ctx.raw + '%' }
-      }},
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.raw ? '$' + ctx.raw + 'K' : '' } } },
       scales: {
         x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Operating Margin %' }, max: 15 }
-      }
-    }
-  });
-}
-
-// -- SLIDE 17: Oil-Corn + Farm Income-Revenue --
-function initSlide17() {
-  new Chart(document.getElementById('c17-oilcorn'), {
-    type: 'line',
-    data: {
-      labels: ['2010','2012','2014','2016','2018','2020','2022','2024'],
-      datasets: [
-        { label: 'WTI Oil ($/bbl)', data: [79, 94, 93, 43, 65, 39, 95, 70], borderColor: COPPER, backgroundColor: COPPER, pointRadius: 4, yAxisID: 'y' },
-        { label: 'Corn ($/bu)', data: [5.18, 6.89, 3.70, 3.36, 3.61, 3.56, 6.54, 4.35], borderColor: GREEN, backgroundColor: GREEN, pointRadius: 4, yAxisID: 'y1' }
-      ]
-    },
-    options: {
-      scales: {
-        y: { position: 'left', grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Oil ($/bbl)' } },
-        y1: { position: 'right', grid: { display: false }, title: { display: true, text: 'Corn ($/bu)' } },
-        x: { grid: { color: 'rgba(28,43,58,0.06)' } }
+        y: { stacked: true, grid: { color: GRID }, title: { display: true, text: '$K' } }
       }
     }
   });
 
-  new Chart(document.getElementById('c17-incomerev'), {
-    type: 'line',
-    data: {
-      labels: ['2010','2012','2014','2016','2018','2020','2022','2024'],
-      datasets: [
-        { label: 'Net Farm Income ($B)', data: [80, 114, 92, 67, 83, 121, 186, 155], borderColor: AMBER, backgroundColor: AMBER, pointRadius: 4, tension: 0, yAxisID: 'y' },
-        { label: 'Deere Revenue ($B)', data: [26.0, 36.2, 36.1, 26.6, 37.4, 35.5, 52.6, 40.0], borderColor: GREEN, backgroundColor: GREEN, pointRadius: 4, tension: 0, yAxisID: 'y1' },
-        { label: 'AGCO Revenue ($B)', data: [6.9, 10.0, 9.7, 7.4, 9.4, 9.2, 12.7, 11.7], borderColor: TEAL, backgroundColor: TEAL, pointRadius: 4, tension: 0, borderDash: [5, 3], yAxisID: 'y2' }
-      ]
-    },
-    options: {
-      scales: {
-        y: { position: 'left', grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Farm Income ($B)' } },
-        y1: { position: 'right', grid: { display: false }, title: { display: true, text: 'Deere Rev ($B)' } },
-        y2: { position: 'right', grid: { display: false }, title: { display: true, text: 'AGCO Rev ($B)' }, min: 0, max: 16 },
-        x: { grid: { color: 'rgba(28,43,58,0.06)' } }
-      }
-    }
-  });
-}
-
-// -- SLIDE 20: FCF Yield Comparison --
-function initSlide20() {
-  new Chart(document.getElementById('c20-yield'), {
+  new Chart(document.getElementById('c4-margins'), {
     type: 'bar',
     data: {
-      labels: ['AGCO (2025 Actual)', 'AGCO Mid-Cycle', 'CNH Mid-Cycle', 'Industrial Avg', 'CAT', 'Deere'],
+      labels: ['Precision Ag', 'Parts', 'Service', 'Whole Goods'],
       datasets: [{
-        label: 'FCF Yield (%)',
-        data: [9.7, 8.6, 8.2, 4.5, 3.8, 2.7],
-        backgroundColor: [AMBER, AMBER+'80', BLUE, GRAY, GRAY, GREEN],
-        borderWidth: 0, borderRadius: 4
+        label: 'Gross Margin (%)',
+        data: [47, 42, 35, 20],
+        backgroundColor: [GREEN, TEAL, COPPER, PRIMARY],
+        borderRadius: 4
       }]
     },
     options: {
       indexAxis: 'y',
       plugins: { legend: { display: false } },
       scales: {
-        x: { grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'FCF Yield (%)' }, max: 12 },
+        x: { grid: { color: GRID }, title: { display: true, text: 'Gross Margin (%)' }, max: 55 },
         y: { grid: { display: false } }
       }
     }
   });
-
-  new Chart(document.getElementById('c20-eveb'), {
-    type: 'bar',
-    data: {
-      labels: ['CNH', 'AGCO', 'Caterpillar', 'Industrial Avg', 'Deere'],
-      datasets: [{
-        label: 'EV/EBITDA (x)',
-        data: [6.2, 9.2, 14.5, 12.0, 18.5],
-        backgroundColor: [BLUE, AMBER, GRAY, GRAY, GREEN],
-        borderWidth: 0, borderRadius: 4
-      }]
-    },
-    options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { max: 22, grid: { color: 'rgba(28,43,58,0.06)' } }, y: { grid: { display: false } } } }
-  });
 }
 
-// -- SLIDE 21: Scenario Returns --
-function initSlide21() {
-  new Chart(document.getElementById('c21-scenario'), {
+// ── SLIDE 5 ──
+function initS5() {
+  new Chart(document.getElementById('c5-recovery'), {
     type: 'bar',
     data: {
-      labels: ['Bull ($160)', 'Base ($125)', 'Bear ($72)'],
+      labels: ['2009\nRecovery', '2016\nRecovery', '2020\nRecovery'],
       datasets: [
-        {
-          label: 'Return (%)',
-          data: [52, 19, -31],
-          backgroundColor: [GREEN, AMBER, RED],
-          borderWidth: 0, borderRadius: 4,
-          yAxisID: 'y'
-        },
-        {
-          label: 'Probability (%)',
-          type: 'line',
-          data: [30, 45, 25],
-          borderColor: LIGHT,
-          backgroundColor: LIGHT,
-          pointRadius: 6,
-          yAxisID: 'y1',
-          fill: false
-        }
+        { label: 'AGCO', data: [150, 73, 250], backgroundColor: PRIMARY, borderRadius: 4 },
+        { label: 'CNH', data: [120, 172, 200], backgroundColor: TEAL, borderRadius: 4 },
+        { label: 'Deere', data: [100, 158, 180], backgroundColor: COPPER, borderRadius: 4 }
       ]
     },
     options: {
-      plugins: { legend: { position: 'top' } },
+      plugins: { legend: { position: 'bottom' } },
       scales: {
-        y: { position: 'left', grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'Return (%)' } },
-        y1: { position: 'right', grid: { display: false }, title: { display: true, text: 'Probability (%)' }, min: 0, max: 60 },
+        y: { grid: { color: GRID }, title: { display: true, text: '24-Month Return (%)' } },
         x: { grid: { display: false } }
       }
     }
   });
 }
 
-// -- SLIDE 22: TSR Bridge --
-function initSlide22() {
-  new Chart(document.getElementById('c22-tsr'), {
+// ── SLIDE 6 ──
+function initS6() {
+  new Chart(document.getElementById('c6-ptx'), {
     type: 'bar',
     data: {
-      labels: ['Earnings\nGrowth', 'PTx\nGrowth', 'Buyback\nYield', 'Dividend\nYield', 'Total TSR\n(Annual)'],
-      datasets: [
-        { label: 'Base', data: [0, 11.5, 14.0, 17.5, 0], backgroundColor: 'transparent', borderWidth: 0 },
-        { label: 'Component',
-          data: [11.5, 2.5, 3.5, 1.0, 18.5],
-          backgroundColor: [AMBER, TEAL, GREEN, BLUE, AMBER],
-          borderWidth: 0, borderRadius: 4 }
-      ]
+      labels: ['2024', '2025', '2026E', '2027E', '2028E', '2029E'],
+      datasets: [{
+        label: 'PTx Revenue ($M)',
+        data: [640, 860, 950, 1100, 1400, 2000],
+        backgroundColor: [PRIMARY, PRIMARY, PRIMARY+'80', PRIMARY+'80', PRIMARY+'60', PRIMARY+'60'],
+        borderColor: [PRIMARY, PRIMARY, PRIMARY, PRIMARY, PRIMARY, PRIMARY],
+        borderWidth: 1, borderRadius: 4
+      }]
     },
     options: {
-      plugins: { legend: { display: false }, tooltip: {
-        callbacks: { label: ctx => ctx.dataset.label === 'Base' ? '' : ctx.raw + '%' }
-      }},
+      plugins: { legend: { display: false } },
       scales: {
-        x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: 'TSR (%)' }, max: 22 }
+        y: { grid: { color: GRID }, title: { display: true, text: '$M' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('c6-fleet'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Deere (~35%)', 'CNH (~25%)', 'AGCO (~15%)', 'Others (~25%)'],
+      datasets: [{
+        data: [35, 25, 15, 25],
+        backgroundColor: [GRAY, COPPER, PRIMARY, '#D4D0C8'],
+        borderWidth: 0
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom' },
+        title: { display: true, text: '65% of global fleet needs retrofit — AGCO\'s TAM', font: { size: 11, weight: 600 }, color: GREEN }
       }
     }
   });
 }
 
-// -- SLIDE 23: Dividend History --
-function initSlide23() {
-  new Chart(document.getElementById('c23-div'), {
+// ── SLIDE 7 ──
+function initS7() {
+  new Chart(document.getElementById('c7-geo'), {
     type: 'bar',
     data: {
-      labels: ['2021','2022','2023','2024','2025'],
+      labels: ['AGCO', 'Deere'],
       datasets: [
-        { label: 'Regular Dividend', data: [0.80, 0.96, 1.16, 1.16, 1.16], backgroundColor: TEAL, borderWidth: 0, borderRadius: 4 },
-        { label: 'Special Dividend', data: [4.00, 4.50, 5.00, 2.50, 0], backgroundColor: AMBER, borderWidth: 0, borderRadius: 4 }
+        { label: 'Europe', data: [67, 20], backgroundColor: PRIMARY, borderRadius: 2 },
+        { label: 'North America', data: [17, 60], backgroundColor: TEAL, borderRadius: 2 },
+        { label: 'South America', data: [11, 10], backgroundColor: COPPER, borderRadius: 2 },
+        { label: 'Asia/Other', data: [5, 10], backgroundColor: GRAY, borderRadius: 2 }
       ]
     },
     options: {
-      plugins: { legend: { position: 'top' } },
+      plugins: { legend: { position: 'bottom' } },
       scales: {
         x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, grid: { color: 'rgba(28,43,58,0.06)' }, title: { display: true, text: '$/Share' } }
+        y: { stacked: true, grid: { color: GRID }, title: { display: true, text: '% of Revenue' }, max: 100 }
       }
     }
   });
 }
+
+// Initialize first slide
+initChartsForSlide(0);
 </script>
-
 </body>
 </html>
