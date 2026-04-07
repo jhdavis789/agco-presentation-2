@@ -201,8 +201,21 @@ td.gold { color: var(--gold-400); }
     <div class="col">
       <div class="card">
         <span class="exhibit-num">Exhibit 1c</span>
-        <h3>Market Share by Region (%)</h3>
-        <canvas id="c1-region-share" style="max-height:220px"></canvas>
+        <h3>Market Share by Region</h3>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="flex:1;text-align:center">
+            <canvas id="c1-region-na" style="max-height:160px"></canvas>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:4px">North America — $57B</div>
+          </div>
+          <div style="flex:1;text-align:center">
+            <canvas id="c1-region-eu" style="max-height:160px"></canvas>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:4px">Europe — $48B</div>
+          </div>
+          <div style="flex:1;text-align:center">
+            <canvas id="c1-region-sa" style="max-height:160px"></canvas>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:4px">South America — $18B</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -435,8 +448,25 @@ td.gold { color: var(--gold-400); }
     <div class="col">
       <div class="card">
         <span class="exhibit-num">Exhibit 11</span>
-        <h3>Global Fleet — 65% Is NOT Deere</h3>
-        <canvas id="c6-fleet" style="max-height:280px"></canvas>
+        <h3>The Installed Base: 50M+ Tractors, 73% Unpenetrated</h3>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex:1">
+            <canvas id="c6-fleet" style="max-height:200px"></canvas>
+          </div>
+          <div style="flex:1">
+            <canvas id="c6-penetration" style="max-height:200px"></canvas>
+          </div>
+        </div>
+        <table style="margin-top:14px;font-size:11px">
+          <tr><th>Region</th><th class="r">Tractors</th><th class="r">Precision Ag Adoption</th><th class="r">Source</th></tr>
+          <tr><td>United States</td><td class="r">3.78M (1.25M &gt;100HP)</td><td class="r blue">27% all farms; 70% large</td><td class="r" style="color:var(--text-muted)">USDA Census 2022</td></tr>
+          <tr><td>Europe</td><td class="r">8-10M</td><td class="r gold">~30-40% large farms</td><td class="r" style="color:var(--text-muted)">World Bank / CEMA</td></tr>
+          <tr><td>India</td><td class="r">9.7M</td><td class="r red">&lt;5%</td><td class="r" style="color:var(--text-muted)">TMA India 2023</td></tr>
+          <tr><td>China (large/med)</td><td class="r">5.5M</td><td class="r red">&lt;10%</td><td class="r" style="color:var(--text-muted)">CEIC 2023</td></tr>
+          <tr><td>Brazil</td><td class="r">~1.2M</td><td class="r gold">~15-20% large farms</td><td class="r" style="color:var(--text-muted)">FAO + sales data</td></tr>
+          <tr><td style="border-top:2px solid var(--navy-800)"><strong>Global Total</strong></td><td class="r" style="border-top:2px solid var(--navy-800)"><strong>~50M+</strong></td><td class="r" style="border-top:2px solid var(--navy-800);color:var(--red-500)"><strong>&lt;15% globally</strong></td><td class="r" style="border-top:2px solid var(--navy-800)"></td></tr>
+        </table>
+        <div style="color:var(--teal-500);font-size:11px;margin-top:8px;font-weight:600">AGCO's own data: only 7% of farmers buy new equipment each year. 90% of PTx retrofit items go onto non-AGCO equipment. The other 93% is the TAM.</div>
       </div>
     </div>
   </div>
@@ -472,7 +502,7 @@ td.gold { color: var(--gold-400); }
   </div>
   <div class="callout"><strong>The platform play:</strong> AGCO retrofits a CNH or "other" tractor with PTx guidance and Precision Planting hardware. The farmer builds 3-5 years of yield data, planting prescriptions, and field maps on AGCO's platform. When that old tractor needs replacing, the switching cost is now <em>away from the AGCO platform</em>, not away from the old tractor brand. This is how you convert 65% of the global fleet from competitors to AGCO customers — one retrofit at a time.</div>
   <div class="callout-gold callout" style="margin-top:12px"><strong>The AI tailwind:</strong> I don't think the market has appropriately priced AI disruption in ag tech. In the next 12 months, examples of AI-driven precision ag (computer vision spraying, autonomous operations, yield prediction) will accelerate. This is <em>bullish for AGCO</em> because: (1) AI commoditizes the sensor layer — hardware becomes interchangeable, (2) platforms become easier to build and iterate on, (3) AGCO's open ecosystem benefits from AI faster than Deere's closed one, (4) but pure tech companies still can't enter because you need the heavy iron and the dealer network. SymphonyVision Duo already delivers 77% herbicide savings in beta — this catches up to Deere's See &amp; Spray.</div>
-  <div class="source">Source: AGCO 10-K, PTx Trimble filings, expert interviews, Deere 10-K | JAOD Analysis</div>
+  <div class="source">Source: AGCO 10-K, AGCO 2024 Analyst Day (SEC 8-K), PTx Trimble filings, USDA Census of Agriculture 2022, CEIC, TMA India, World Bank/FAO, expert interviews, Deere 10-K | JAOD Analysis</div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════ -->
@@ -638,25 +668,31 @@ function initS1() {
     options: { plugins: { legend: { position: 'bottom' } } }
   });
 
-  // Regional share (grouped bar)
-  new Chart(document.getElementById('c1-region-share'), {
-    type: 'bar',
-    data: {
-      labels: ['North America', 'Europe', 'South America'],
-      datasets: [
-        { label: 'Deere', data: [55, 18, 22], backgroundColor: GRAY, borderRadius: 3 },
-        { label: 'CNH', data: [28, 22, 28], backgroundColor: COPPER, borderRadius: 3 },
-        { label: 'AGCO', data: [12, 22, 28], backgroundColor: PRIMARY, borderRadius: 3 },
-        { label: 'Others', data: [5, 38, 22], backgroundColor: '#D4D0C8', borderRadius: 3 }
-      ]
-    },
-    options: {
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10 } } },
-      scales: {
-        x: { stacked: true, grid: { display: false } },
-        y: { stacked: true, grid: { color: GRID }, title: { display: true, text: 'Share (%)' }, max: 100 }
-      }
+  // Regional share (three pie charts)
+  const regionPieOpts = (title) => ({
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: title, font: { size: 10, weight: 600 }, color: '#1C2B3A' },
+      tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + ctx.parsed + '%' } }
     }
+  });
+  const regionLabels = ['Deere', 'CNH', 'AGCO', 'Others'];
+  const regionColors = [GRAY, COPPER, PRIMARY, '#D4D0C8'];
+
+  new Chart(document.getElementById('c1-region-na'), {
+    type: 'pie',
+    data: { labels: regionLabels, datasets: [{ data: [55, 28, 12, 5], backgroundColor: regionColors, borderWidth: 1, borderColor: '#fff' }] },
+    options: regionPieOpts('North America')
+  });
+  new Chart(document.getElementById('c1-region-eu'), {
+    type: 'pie',
+    data: { labels: regionLabels, datasets: [{ data: [18, 22, 22, 38], backgroundColor: regionColors, borderWidth: 1, borderColor: '#fff' }] },
+    options: regionPieOpts('Europe')
+  });
+  new Chart(document.getElementById('c1-region-sa'), {
+    type: 'pie',
+    data: { labels: regionLabels, datasets: [{ data: [22, 28, 28, 22], backgroundColor: regionColors, borderWidth: 1, borderColor: '#fff' }] },
+    options: regionPieOpts('South America')
   });
 }
 
@@ -847,17 +883,35 @@ function initS6() {
   new Chart(document.getElementById('c6-fleet'), {
     type: 'doughnut',
     data: {
-      labels: ['Deere (~35%)', 'CNH (~25%)', 'AGCO (~15%)', 'Others (~25%)'],
+      labels: ['Deere (~25%)', 'CNH (~20%)', 'AGCO (~12%)', 'Others (~43%)'],
       datasets: [{
-        data: [35, 25, 15, 25],
+        data: [25, 20, 12, 43],
         backgroundColor: [GRAY, COPPER, PRIMARY, '#D4D0C8'],
-        borderWidth: 0
+        borderWidth: 1, borderColor: '#fff'
       }]
     },
     options: {
       plugins: {
-        legend: { position: 'bottom' },
-        title: { display: true, text: '65% of global fleet needs retrofit — AGCO\'s TAM', font: { size: 11, weight: 600 }, color: GREEN }
+        legend: { position: 'bottom', labels: { boxWidth: 8, font: { size: 9 } } },
+        title: { display: true, text: 'Global Fleet by OEM (~50M+ tractors)', font: { size: 10, weight: 600 }, color: '#1C2B3A' }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('c6-penetration'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Has Precision Ag (~15%)', 'No Precision Ag (~85%)'],
+      datasets: [{
+        data: [15, 85],
+        backgroundColor: [GREEN, '#E8E5E0'],
+        borderWidth: 1, borderColor: '#fff'
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 8, font: { size: 9 } } },
+        title: { display: true, text: 'Global Precision Ag Penetration', font: { size: 10, weight: 600 }, color: '#1C2B3A' }
       }
     }
   });
